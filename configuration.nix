@@ -147,7 +147,7 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-  }
+  };
   hardware.opengl.driSupport32Bit = true;
 
   services.flatpak.enable = true;
