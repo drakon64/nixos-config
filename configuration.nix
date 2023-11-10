@@ -106,6 +106,7 @@
     pkgs._1password-gui
     pkgs.xivlauncher
 
+    gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.dash-to-dock
   ];
 
