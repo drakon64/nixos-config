@@ -151,6 +151,5 @@
   };
   hardware.opengl.driSupport32Bit = true;
 
-  services.flatpak.enable = true;
   services.fwupd.enable = true;
 }
