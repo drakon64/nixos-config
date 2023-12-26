@@ -21,6 +21,5 @@
   nixpkgs.config.allowUnfree = true;
 
   services.gnome.core-utilities.enable = false;
-
   services.xserver.videoDrivers = [ "nvidia" ];
 }
