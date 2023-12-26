@@ -4,20 +4,23 @@
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix>
   ];
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
-  boot.supportedFilesystems = [ "bcachefs" ];
+  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.supportedFilesystems = lib.mkForce [ "bcachefs" "vfat" ];
+
+  environment.systemPackages = with pkgs; [
+    pkgs.gnome-console
+    pkgs.gnome.file-roller
+    pkgs.gnome.nautilus
+  ];
 
   hardware.nvidia = {
     modesetting.enable = true;
-    open = true;
+    # open = true;
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [(final: super: {
-    zfs = super.zfs.overrideAttrs(_: {
-      meta.platforms = [];
-    });
-  })];
+
+  services.gnome.core-utilities.enable = false;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 }
