@@ -5,7 +5,6 @@
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_testing;
-  boot.supportedFilesystems = lib.mkForce [ "bcachefs" "vfat" ];
 
   environment.systemPackages = with pkgs; [
     pkgs.gnome-console
@@ -19,6 +18,11 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [(final: super: {
+    zfs = super.zfs.overrideAttrs(_: {
+      meta.platforms = [];
+    });
+  })];
 
   services.gnome.core-utilities.enable = false;
   services.xserver.videoDrivers = [ "nvidia" ];
