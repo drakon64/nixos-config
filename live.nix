@@ -8,7 +8,6 @@
 
   environment.systemPackages = with pkgs; [
     pkgs.gnome-console
-    pkgs.gnome.file-roller
     pkgs.gnome.nautilus
   ];
 
