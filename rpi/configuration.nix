@@ -1,6 +1,28 @@
-{ config, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
-{
+let
+  sys = inputs.nixos.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      ({ config, pkgs, lib, modulesPath, ... }: {
+        imports = [ (modulesPath + "/installer/netboot/netboot-minimal.nix") ];
+        config = {
+          services.openssh = {
+            enable = true;
+            openFirewall = true;
+
+            settings = {
+              PasswordAuthentication = false;
+              KbdInteractiveAuthentication = false;
+            };
+          };
+        };
+      })
+    ];
+  };
+
+  build = sys.config.system.build;
+in {
   imports = [ <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64.nix> ];
 
   boot = {
