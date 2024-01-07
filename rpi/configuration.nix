@@ -1,6 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
+  nixpkgs = builtins.getFlake "github:nixos/nixpkgs/nixos-23.11";
+
   netboot = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
 
