@@ -32,17 +32,6 @@ in {
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  services.pixiecore = {
-    enable = true;
-
-    dhcpNoBind = true;
-    mode = "boot";
-    openFirewall = true;
-
-    # kernel = "${netboot.kernel}/bzImage";
-    # initrd = "${netboot.netbootRamdisk}/initrd";
-  };
-
   networking = {
     defaultGateway = {
       address = "192.168.1.1";
