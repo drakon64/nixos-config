@@ -1,6 +1,20 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
-{
+let
+  netboot = inputs.nixos.lib.nixosSystem {
+    system = "aarch64-linux";
+
+    modules = [
+      ({ config, pkgs, ... }: {
+        imports = [
+          <nixpkgs/nixos/modules/installer/netboot/netboot-minimal.nix>
+        ];
+
+        system.stateVersion = "23.11";
+      })
+    ];
+  }.config.system.build;
+in {
   imports = [
     <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
   ];
