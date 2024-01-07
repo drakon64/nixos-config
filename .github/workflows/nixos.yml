@@ -13,11 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: cachix/install-nix-action@v24
         with:
           nix_path: nixpkgs=channel:nixos-23.11
-      - run: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live.nix
+          extra_nix_config: |
+            extra-platforms = aarch64-linux
+
+      - run: |
+          nix-build '<nixpkgs/nixos>' \
+          -A config.system.build.sdImage \
+          -I nixos-config=rpi/configuration.nix \
+          --option sandbox false
+
       - uses: actions/upload-artifact@v4.0.0
         with:
-          path: result/iso/*.iso
+          path: result/sd-image/*.img
           compression-level: 0
