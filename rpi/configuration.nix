@@ -2,7 +2,7 @@
 
 let
   netboot = inputs.nixos.lib.nixosSystem {
-    system = "aarch64-linux";
+    system = "x86_64-linux";
 
     modules = [
       ({ config, pkgs, ... }: {
@@ -20,7 +20,7 @@ in {
   ];
 
   boot = {
-    # binfmt.emulatedSystems = [ "x86_64-linux" ];
+    binfmt.emulatedSystems = [ "x86_64-linux" ];
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
