@@ -1,7 +1,7 @@
 { config, inputs, lib, pkgs, ... }:
 
 let
-  sys = inputs.nixos.lib.nixosSystem {
+  netboot = inputs.nixos.lib.nixosSystem {
     system = "x86_64-linux";
 
     modules = [
@@ -21,9 +21,7 @@ let
         };
       })
     ];
-  };
-
-  netboot = sys.config.system.build;
+  }.config.system.build;
 in {
   imports = [ <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64.nix> ];
 
