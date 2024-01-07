@@ -23,6 +23,4 @@ in {
     kernel = "${build.kernel}/bzImage";
     initrd = "${build.netbootRamdisk}/initrd";
   };
-  
-  system = "aarch64-linux";
 }

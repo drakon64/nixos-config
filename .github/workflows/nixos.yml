@@ -20,11 +20,7 @@ jobs:
           extra_nix_config: |
             extra-platforms = aarch64-linux
 
-      - run: |
-          nix-build '<nixpkgs/nixos>' \
-          -A config.system.build.sdImage \
-          -I nixos-config=rpi/configuration.nix \
-          --option sandbox false
+      - run: nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=rpi/configuration.nix --argstr system aarch64-linux --option sandbox false
 
       - uses: actions/upload-artifact@v4.0.0
         with:
