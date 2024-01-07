@@ -11,7 +11,7 @@
   };
 
   containers.pxe = {
-    autostart = true;
+    autoStart = true;
     extraFlags = [ "-U" ];
 
     config = { config, pkgs, ... }: {
