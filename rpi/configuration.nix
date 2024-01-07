@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   netboot = inputs.nixos.lib.nixosSystem {
@@ -33,6 +33,20 @@ in {
 
     kernel = "${netboot.kernel}/bzImage";
     initrd = "${netboot.netbootRamdisk}/initrd";
+  };
+
+  networking = {
+    defaultGateway = {
+      address = "192.168.1.1";
+      interface = "eth0";
+    };
+
+    interfaces.eth0.ipv4.addresses = {
+      address = "192.168.1.2";
+      prefixLength = 24;
+    };
+
+    nameservers = [ "192.168.1.1" ];
   };
 
   nixpkgs.overlays = [(final: super: {
