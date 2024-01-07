@@ -12,6 +12,7 @@
 
   containers.pxe = {
     autostart = true;
+    extraFlags = [ "-U" ];
 
     config = { config, pkgs, ... }: {
       services.caddy = {
