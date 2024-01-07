@@ -10,34 +10,25 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  containers.pxe = {
-    autoStart = true;
-    extraFlags = [ "-U" ];
+  services.caddy = {
+    enable = true;
 
-    config = { config, pkgs, ... }: {
-      services.caddy = {
-        enable = true;
+    virtualHosts."http://localhost".extraConfig = ''
+      respond "#!ipxe
+      "
+    '';
+  };
 
-        virtualHosts."http://localhost".extraConfig = ''
-          respond "#!ipxe
-          "
-        '';
-      };
+  services.dnsmasq = {
+    enable = true;
 
-      services.dnsmasq = {
-        enable = true;
+    settings = {
+      dhcp-range = "192.168.1.2,proxy";
+      dhcp-userclass = "set:iPXE,iPXE";
+      dhcp-boot = [ "tag:!iPXE,snponly.efi,192.168.1.2" "tag:iPXE,http://192.168.1.2/boot.ipxe" ];
 
-        settings = {
-          dhcp-range = "192.168.1.2,proxy";
-          dhcp-userclass = "set:iPXE,iPXE";
-          dhcp-boot = [ "tag:!iPXE,snponly.efi,192.168.1.2" "tag:iPXE,http://192.168.1.2/boot.ipxe" ];
-
-          interface = "bind-dynamic";
-          port = 0;
-        };
-      };
-
-      system.stateVersion = "23.11";
+      interface = "bind-dynamic";
+      port = 0;
     };
   };
 
