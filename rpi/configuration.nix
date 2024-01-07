@@ -56,4 +56,12 @@ in {
   })];
 
   system.stateVersion = "23.11";
+
+  users.users."nixos" = {
+    extraGroups = [ "wheel" ];
+    initialPassword = "nixos";
+    isNormalUser = true;
+    name = "NixOS";
+    shell = pkgs.bashInteractive;
+  };
 }
