@@ -30,8 +30,7 @@
         settings = {
           dhcp-range = "192.168.1.2,proxy";
           dhcp-userclass = "set:iPXE,iPXE";
-          dhcp-boot = "tag:!iPXE,snponly.efi,192.168.1.2";
-          dhcp-boot = "tag:iPXE,http://192.168.1.2/boot.ipxe";
+          dhcp-boot = [ "tag:!iPXE,snponly.efi,192.168.1.2" "tag:iPXE,http://192.168.1.2/boot.ipxe" ];
 
           interface = bind-dynamic;
           port = 0;
