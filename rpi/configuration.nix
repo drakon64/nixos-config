@@ -41,10 +41,10 @@ in {
       interface = "eth0";
     };
 
-    interfaces.eth0.ipv4.addresses = {
+    interfaces.eth0.ipv4.addresses = [{
       address = "192.168.1.2";
       prefixLength = 24;
-    };
+    }];
 
     nameservers = [ "192.168.1.1" ];
   };
