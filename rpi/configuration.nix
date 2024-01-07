@@ -24,26 +24,15 @@ in {
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  services.caddy = {
+  services.pixiecore = {
     enable = true;
 
-    virtualHosts."http://localhost".extraConfig = ''
-      respond "#!ipxe
-      "
-    '';
-  };
+    dhcpNoBind = true;
+    mode = "boot";
+    openFirewall = true;
 
-  services.dnsmasq = {
-    enable = true;
-
-    settings = {
-      dhcp-range = "192.168.1.2,proxy";
-      dhcp-userclass = "set:iPXE,iPXE";
-      dhcp-boot = [ "tag:!iPXE,snponly.efi,192.168.1.2" "tag:iPXE,http://192.168.1.2/boot.ipxe" ];
-
-      interface = "bind-dynamic";
-      port = 0;
-    };
+    kernel = "${netboot.kernel}/bzImage";
+    initrd = "${netboot.netbootRamdisk}/initrd";
   };
 
   nixpkgs.overlays = [(final: super: {
