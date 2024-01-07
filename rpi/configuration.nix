@@ -6,7 +6,7 @@
   ];
 
   boot = {
-    binfmt.emulatedSystems = [ "x86_64-linux" ];
+    # binfmt.emulatedSystems = [ "x86_64-linux" ];
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
