@@ -1,6 +1,10 @@
 { config, inputs, lib, pkgs, ... }:
 
 let
+  inputs = {
+    nixos.url = "github:nixos/nixpkgs/nixos-23.11";
+  };
+
   netboot = inputs.nixos.lib.nixosSystem {
     system = "x86_64-linux";
 
@@ -50,10 +54,24 @@ in {
     });
   })];
 
-  services.openssh = {
-    enable = true;
+  services = {
+    pixiecore = {
+      enable = true;
 
-    settings.PermitRootLogin = "no";
+      dhcpNoBind = true;
+      mode = "boot";
+      openFirewall = true;
+
+      kernel = "${netboot.kernel}/bzImage";
+      initrd = "${netboot.netbootRamdisk}/initrd";
+      cmdLine = "init=${netboot.toplevel}/init initrd=initrd";
+    };
+
+    openssh = {
+      enable = true;
+
+      settings.PermitRootLogin = "no";
+    };
   };
 
   system.stateVersion = "23.11";
