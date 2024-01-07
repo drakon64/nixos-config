@@ -6,4 +6,6 @@
   ];
 
   boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+
+  system.stateVersion = "23.11";
 }
