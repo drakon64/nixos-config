@@ -52,6 +52,12 @@ in {
     });
   })];
 
+  services.openssh = {
+    enable = true;
+
+    settings.PermitRootLogin = "no";
+  };
+
   system.stateVersion = "23.11";
 
   users.users."nixos" = {
