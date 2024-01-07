@@ -8,7 +8,7 @@
   boot = {
     binfmt.emulatedSystems = [ "x86_64-linux" ];
     kernelPackages = pkgs.linuxPackages_latest;
-  }
+  };
 
   containers.pxe = {
     autostart = true;
