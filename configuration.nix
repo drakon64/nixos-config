@@ -85,6 +85,12 @@
     opengl.driSupport32Bit = true;
   };
 
+  nixpkgs.overlays = [(final: super: {
+    zfs = super.zfs.overrideAttrs(_: {
+      meta.platforms = [];
+    });
+  })];
+
   programs = {
     gamemode.enable = true;
     steam.enable = true;
