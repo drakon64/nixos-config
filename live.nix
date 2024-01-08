@@ -6,7 +6,8 @@
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_testing;
     supportedFilesystems = [ "bcachefs" ];
   };
 
