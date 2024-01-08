@@ -68,6 +68,7 @@
   environment.systemPackages = with pkgs; [
     _1password-gui
     discord
+    ffmpeg
     r2modman
     vim
     xivlauncher
