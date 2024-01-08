@@ -45,6 +45,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
@@ -56,6 +57,9 @@
 
   # Configure console keymap
   console.keyMap = "uk";
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -94,14 +98,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-
-    pkgs._1password-gui
-    pkgs.xivlauncher
-
-    gnomeExtensions.alphabetical-app-grid
-    gnomeExtensions.dash-to-dock
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -129,21 +127,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-  }; 
-
-  programs.gamemode.enable = true;
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-  };
-  hardware.opengl.driSupport32Bit = true;
-
-  services.fwupd.enable = true;
+  system.stateVersion = "23.11"; # Did you read the comment?
 }
