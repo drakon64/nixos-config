@@ -58,6 +58,15 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # services.openssh.enable = true;
+
+  system.stateVersion = "23.11";
+
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    supportedFilesystems = [ "bcachefs" ];
+  };
+
   environment.systemPackages = with pkgs; [
     _1password-gui
     discord
@@ -71,15 +80,6 @@
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
   ];
-
-  # services.openssh.enable = true;
-
-  system.stateVersion = "23.11";
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems = [ "bcachefs" ];
-  };
 
   hardware = {
     nvidia.modesetting.enable = true;
