@@ -67,10 +67,13 @@
 
   environment.systemPackages = with pkgs; [
     _1password-gui
+    discord
+    r2modman
     vim
     xivlauncher
 
     gnomeExtensions.alphabetical-app-grid
+    gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
   ];
 
