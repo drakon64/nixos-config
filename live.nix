@@ -23,7 +23,7 @@
   services.openssh.enable = true;
 
   users.users.nixos = {
-    initialHashedPassword = null;
+    initialHashedPassword = lib.mkForce null;
     initialPassword = "nixos";
   };
 }
