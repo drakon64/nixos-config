@@ -13,6 +13,10 @@
     vim
   ];
 
+  hardware = {
+    nvidia.modesetting.enable = true;
+  };
+
   isoImage.squashfsCompression = "zstd";
 
   nixpkgs.config.allowUnfree = true;
@@ -23,7 +27,10 @@
     });
   })];
 
-  services.openssh.enable = true;
+  services = {
+    openssh.enable = true;
+    xserver.videoDrivers = [ "nvidia" ];
+  };
 
   users.users.nixos = {
     initialHashedPassword = lib.mkForce null;
