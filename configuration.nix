@@ -1,9 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   networking.hostName = "nixos";
 
   networking.networkmanager.enable = true;
@@ -48,8 +45,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # services.openssh.enable = true;
-
   system.stateVersion = "23.11";
 
   boot = {
@@ -58,37 +53,17 @@
   };
 
   environment.systemPackages = with pkgs; [
-    _1password-gui
-    discord
-    ffmpeg
     firefox
-    # r2modman
     vim
-    xivlauncher
-
-    gnomeExtensions.alphabetical-app-grid
-    gnomeExtensions.appindicator
-    gnomeExtensions.dash-to-dock
   ];
 
-  hardware = {
-    nvidia.modesetting.enable = true;
-    opengl.driSupport32Bit = true;
-  };
+  hardware.nvidia.modesetting.enable = true;
 
   nixpkgs.overlays = [(final: super: {
     zfs = super.zfs.overrideAttrs(_: {
       meta.platforms = [];
     });
   })];
-
-  programs = {
-    gamemode.enable = true;
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-    };
-  };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 }
