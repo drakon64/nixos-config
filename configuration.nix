@@ -94,7 +94,10 @@
 
   programs = {
     gamemode.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
