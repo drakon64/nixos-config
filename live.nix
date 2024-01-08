@@ -4,9 +4,10 @@
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix>
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  boot.supportedFilesystems = [ "bcachefs" ];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    supportedFilesystems = [ "bcachefs" ];
+  };
 
   environment.systemPackages = with pkgs; [
     bcachefs-tools
@@ -19,13 +20,14 @@
 
   isoImage.squashfsCompression = "zstd";
 
-  nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.overlays = [(final: super: {
-    zfs = super.zfs.overrideAttrs(_: {
-      meta.platforms = [];
-    });
-  })];
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [(final: super: {
+      zfs = super.zfs.overrideAttrs(_: {
+        meta.platforms = [];
+      });
+    })];
+  };
 
   services = {
     openssh.enable = true;
