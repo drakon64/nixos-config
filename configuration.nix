@@ -1,17 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-  boot.supportedFilesystems = [ "bcachefs" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.supportedFilesystems = [ "bcachefs" ];
 
   networking.hostName = "nixos";
 
@@ -67,10 +66,28 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    _1password-gui
+    bcachefs-tools
     vim
+    xivlauncher
+
+    gnomeExtensions.alphabetical-app-grid
+    gnomeExtensions.dash-to-dock
   ];
 
   # services.openssh.enable = true;
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11";
+
+  hardware = {
+    nvidia.modesetting.enable = true;
+    opengl.driSupport32Bit = true;
+  };
+
+  programs = {
+    gamemode.enable = true;
+    steam.enable = true;
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
 }
