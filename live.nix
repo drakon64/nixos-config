@@ -6,6 +6,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  boot.supportedFilesystems = [ "bcachefs" ];
+
   environment.systemPackages = with pkgs; [
     bcachefs-tools
     vim
