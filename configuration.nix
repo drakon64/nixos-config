@@ -5,12 +5,8 @@
     ./hardware-configuration.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.supportedFilesystems = [ "bcachefs" ];
 
   networking.hostName = "nixos";
 
@@ -79,6 +75,11 @@
   # services.openssh.enable = true;
 
   system.stateVersion = "23.11";
+
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    supportedFilesystems = [ "bcachefs" ];
+  };
 
   hardware = {
     nvidia.modesetting.enable = true;
