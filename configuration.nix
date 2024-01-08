@@ -101,4 +101,6 @@
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  users.users.adamc.initialPassword = "nixos";
 }
