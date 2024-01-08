@@ -11,7 +11,7 @@
     vim
   ];
 
-  isoImage.squashfsCompression = "zstd -22 --ultra";
+  isoImage.squashfsCompression = "zstd";
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [(final: super: {
