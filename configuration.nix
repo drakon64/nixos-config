@@ -1,10 +1,6 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -41,19 +37,13 @@
   console.keyMap = "uk";
 
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = lib.mkForce false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-  };
-
-  users.users.adamc = {
-    isNormalUser = true;
-    description = "Adam Chance";
-    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -72,7 +62,7 @@
     discord
     ffmpeg
     firefox
-    r2modman
+    # r2modman
     vim
     xivlauncher
 
@@ -101,6 +91,4 @@
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
-
-  users.users.adamc.initialPassword = "nixos";
 }
