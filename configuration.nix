@@ -58,9 +58,6 @@
     isNormalUser = true;
     description = "Adam Chance";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -69,6 +66,7 @@
     _1password-gui
     discord
     ffmpeg
+    firefox
     r2modman
     vim
     xivlauncher
