@@ -4,19 +4,14 @@
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix>
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   environment.systemPackages = with pkgs; [
-    pkgs.gnome-console
-    pkgs.gnome.nautilus
+    bcachefs-tools
+    vim
   ];
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    # open = true;
-  };
-
-  isoImage.squashfsCompression = "zstd";
+  isoImage.squashfsCompression = "zstd -22 --ultra";
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [(final: super: {
@@ -25,6 +20,10 @@
     });
   })];
 
-  services.gnome.core-utilities.enable = false;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.openssh.enable = true;
+
+  users.users.nixos = {
+    initialHashedPassword = null;
+    initialPassword = "nixos";
+  };
 }
