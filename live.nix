@@ -6,8 +6,6 @@
     ./configuration.nix
   ];
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_testing;
-
   isoImage.squashfsCompression = "zstd";
 
   services.openssh.enable = true;
