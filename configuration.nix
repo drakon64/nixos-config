@@ -52,6 +52,8 @@
     supportedFilesystems = [ "bcachefs" ];
   };
 
+  documentation.nixos.enable = false;
+
   environment = {
     gnome.excludePackages = with pkgs; [
       epiphany
@@ -80,5 +82,8 @@
     });
   })];
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver = {
+    excludePackages = [ pkgs.xterm ];
+    videoDrivers = [ "nvidia" ];
+  };
 }
