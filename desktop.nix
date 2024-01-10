@@ -12,7 +12,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    _1password-gui
     discord
     ffmpeg
     # r2modman
@@ -26,6 +25,7 @@
   hardware.opengl.driSupport32Bit = true;
 
   programs = {
+    _1password-gui.enable = true;
     gamemode.enable = true;
     steam.enable = true;
   };
