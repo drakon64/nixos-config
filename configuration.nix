@@ -52,10 +52,25 @@
     supportedFilesystems = [ "bcachefs" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    firefox
-    vim
-  ];
+  environment = {
+    gnome.excludePackages = with pkgs; [
+      epiphany
+      gnome.geary
+      gnome.gnome-calendar
+      gnome.gnome-clocks
+      gnome.gnome-contacts
+      gnome.gnome-maps
+      gnome.gnome-music
+      gnome.simple-scan
+      gnome-tour
+      gnome.yelp
+      snapshot
+    ];
+    systemPackages = with pkgs; [
+      firefox
+      vim
+    ];
+  };
 
   hardware.nvidia.modesetting.enable = true;
 
