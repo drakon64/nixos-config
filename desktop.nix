@@ -35,7 +35,6 @@
   users.users.adamc = {
     description = "Adam Chance";
     extraGroups = [ "networkmanager" "wheel" ];
-    initialPassword = "nixos";
     isNormalUser = true;
   };
 }
