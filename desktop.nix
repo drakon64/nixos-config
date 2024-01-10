@@ -27,10 +27,7 @@
 
   programs = {
     gamemode.enable = true;
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-    };
+    steam.enable = true;
   };
 
   # services.openssh.enable = true;
