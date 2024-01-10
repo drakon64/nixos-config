@@ -9,7 +9,7 @@
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
-  }
+  };
 
   environment.systemPackages = with pkgs; [
     _1password-gui
