@@ -26,6 +26,7 @@
       gnomeExtensions.alphabetical-app-grid
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-dock
+      gnomeExtensions.gamemode-indicator-in-system-settings
     ];
   };
 
