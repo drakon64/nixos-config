@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./r2modman.nix
     ./configuration.nix
   ];
 
