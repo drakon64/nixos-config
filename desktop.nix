@@ -33,7 +33,15 @@
 
   programs = {
     _1password-gui.enable = true;
-    gamemode.enable = true;
+
+    gamemode = {
+      enable = true;
+
+      settings.general = {
+        renice = 20;
+      };
+    };
+
     steam.enable = true;
   };
 
@@ -41,7 +49,7 @@
 
   users.users.adamc = {
     description = "Adam Chance";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "gamemode" "networkmanager" "wheel" ];
     isNormalUser = true;
   };
 }
