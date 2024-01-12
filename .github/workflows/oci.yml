@@ -1,12 +1,12 @@
-name: "NixOS"
+name: "OCI"
 on:
   push:
     branches:
       - main
     paths:
       - configuration.nix
-      - live.nix
-      - .github/workflows/nixos.yml
+      - oci.nix
+      - .github/workflows/oci.yml
   workflow_dispatch:
 
 jobs:
@@ -19,9 +19,9 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixos-23.11
 
-      - run: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live.nix
+      - run: nix-build '<nixpkgs/nixos>' -A config.system.build.OCIImage -I nixos-config=oci/configuration.nix
 
       - uses: actions/upload-artifact@v4.0.0
         with:
-          path: result/iso/*.iso
+          path: result/nixos.qcow2
           compression-level: 0
