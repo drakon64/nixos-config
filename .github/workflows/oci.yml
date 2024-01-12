@@ -4,8 +4,7 @@ on:
     branches:
       - main
     paths:
-      - configuration.nix
-      - oci.nix
+      - oci/configuration.nix
       - .github/workflows/oci.yml
   workflow_dispatch:
 
