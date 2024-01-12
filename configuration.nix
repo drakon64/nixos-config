@@ -68,6 +68,7 @@
       gnome.yelp
       snapshot
     ];
+
     systemPackages = with pkgs; [
       firefox
       vim
