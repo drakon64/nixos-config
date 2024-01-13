@@ -1,11 +1,12 @@
-name: "OCI"
+name: "Mimir"
 on:
   push:
     branches:
       - main
     paths:
+      - mimir.nix
       - oci/configuration.nix
-      - .github/workflows/oci.yml
+      - .github/workflows/mimir.yml
   workflow_dispatch:
 
 jobs:
@@ -18,7 +19,7 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixos-23.11
 
-      - run: nix-build '<nixpkgs/nixos>' -A config.system.build.OCIImage -I nixos-config=oci/configuration.nix
+      - run: nix-build '<nixpkgs/nixos>' -A config.system.build.OCIImage -I nixos-config=mimir.nix
 
       - uses: actions/upload-artifact@v4.0.0
         with:
