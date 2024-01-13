@@ -3,8 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./r2modman.nix
-    ./configuration.nix
+    ./desktop/r2modman.nix
+    ./desktop/configuration.nix
   ];
 
   boot.loader = {

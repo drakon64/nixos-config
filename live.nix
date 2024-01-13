@@ -3,7 +3,7 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix>
-    ./configuration.nix
+    ./desktop/configuration.nix
   ];
 
   isoImage.squashfsCompression = "zstd";
