@@ -18,7 +18,6 @@
     systemPackages = with pkgs; [
       discord
       ffmpeg
-      helvum
       jetbrains.idea-ultimate
       # r2modman
       xivlauncher
