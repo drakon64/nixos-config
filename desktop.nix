@@ -28,6 +28,9 @@
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-dock
       gnomeExtensions.gamemode-indicator-in-system-settings
+
+      obs-studio-plugins.obs-pipewire-audio-capture
+      obs-studio-plugins.obs-vkcapture
     ];
   };
 
