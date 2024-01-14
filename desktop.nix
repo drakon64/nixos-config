@@ -20,7 +20,6 @@
       ffmpeg
       helvum
       jetbrains.idea-ultimate
-      obs-studio
       # r2modman
       xivlauncher
 
@@ -29,8 +28,12 @@
       gnomeExtensions.dash-to-dock
       gnomeExtensions.gamemode-indicator-in-system-settings
 
-      obs-studio-plugins.obs-pipewire-audio-capture
-      obs-studio-plugins.obs-vkcapture
+      (wrapOBS {
+        plugins = with obs-studio-plugins; [
+          obs-pipewire-audio-capture
+          obs-vkcapture
+        ];
+      })
     ];
   };
 
