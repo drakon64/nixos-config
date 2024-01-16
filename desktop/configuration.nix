@@ -59,11 +59,14 @@
       epiphany
       gnome.geary
       gnome.gnome-calendar
+      gnome.gnome-characters
       gnome.gnome-clocks
       gnome.gnome-contacts
+      gnome.gnome-font-viewer
       gnome.gnome-maps
       gnome.gnome-music
       gnome.simple-scan
+      gnome-connections
       gnome-tour
       gnome.yelp
       snapshot
