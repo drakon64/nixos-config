@@ -20,6 +20,7 @@
       ffmpeg
       jetbrains.idea-ultimate
       # r2modman
+      webcord
       xivlauncher
 
       gnomeExtensions.alphabetical-app-grid
