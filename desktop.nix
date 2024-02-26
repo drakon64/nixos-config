@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./desktop/configuration.nix
-    ./desktop/r2modman.nix
+    ./desktop/unstable.nix
   ];
 
   boot.loader = {
@@ -20,7 +20,7 @@
       ffmpeg
       jetbrains.idea-ultimate
       # r2modman
-      webcord
+      # webcord
       xivlauncher
 
       gnomeExtensions.alphabetical-app-grid
