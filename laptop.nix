@@ -88,6 +88,8 @@
     })];
   };
 
+  programs.virt-manager.enable = true;
+
   services = {
     pipewire = {
       enable = true;
@@ -129,4 +131,6 @@
     extraGroups = [ "libvirtd" "networkmanager" "wheel" ];
     isNormalUser = true;
   };
+
+  virtualisation.libvirtd.enable = true;
 }
