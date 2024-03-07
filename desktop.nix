@@ -91,7 +91,7 @@
   };
 
   networking = {
-    hostName = "nixos";
+    hostName = "desktop";
 
     networkmanager.enable = true;
   };
