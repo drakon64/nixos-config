@@ -126,7 +126,7 @@
 
   users.users.adamc = {
     description = "Adam Chance";
-    extraGroups = [ "networkmanager" "libvirtd" "wheel" ];
+    extraGroups = [ "libvirtd" "networkmanager" "wheel" ];
     isNormalUser = true;
   };
 }
