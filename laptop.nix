@@ -90,8 +90,6 @@
   };
 
   services = {
-    openssh.enable = false;
-
     pipewire = {
       enable = true;
 
