@@ -40,7 +40,6 @@
     ];
 
     systemPackages = with pkgs; [
-      firefox
       jetbrains.idea-ultimate
       microsoft-edge
       vim
