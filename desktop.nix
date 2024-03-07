@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -71,7 +71,7 @@
 
     opengl.driSupport32Bit = true;
 
-    pulseaudio.enable = false;
+    pulseaudio.enable = lib.mkForce false;
   };
 
   i18n = {

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
 #  imports = [
@@ -54,7 +54,7 @@
   hardware = {
     nvidia.modesetting.enable = true;
 
-    pulseaudio.enable = false;
+    pulseaudio.enable = lib.mkForce false;
   };
 
   i18n = {
