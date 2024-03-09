@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - desktop.nix
-      - live/desktop.nix
+      - desktop/configuration.nix
+      - desktop/live.nix
       - .github/workflows/desktop.yml
   workflow_dispatch:
 
@@ -19,7 +19,7 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixos-23.11
 
-      - run: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live/desktop.nix
+      - run: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=desktop/live.nix
 
       - uses: actions/upload-artifact@v4.0.0
         with:
