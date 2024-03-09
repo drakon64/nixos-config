@@ -48,6 +48,7 @@
       firefox
       jetbrains.idea-ultimate
       # r2modman
+      spotify
       vim
       # webcord
       xivlauncher

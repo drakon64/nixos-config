@@ -42,6 +42,7 @@
     systemPackages = with pkgs; [
       jetbrains.idea-ultimate
       microsoft-edge
+      spotify
       vim
 
       gnomeExtensions.alphabetical-app-grid
