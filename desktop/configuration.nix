@@ -116,9 +116,13 @@
       settings.general.renice = 20;
     };
 
-    steam = {
+    gamescope = {
       enable = true;
+
+      capSysNice = true;
     };
+
+    steam.enable = true;
   };
 
   services = {
