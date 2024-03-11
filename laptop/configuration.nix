@@ -117,9 +117,7 @@
       desktopManager.gnome.enable = true;
 
       layout = "gb";
-
       videoDrivers = [ "nvidia" ];
-
       xkbVariant = "";
     };
   };

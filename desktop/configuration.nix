@@ -130,7 +130,6 @@
 
     gamescope = {
       enable = true;
-
       capSysNice = true;
     };
 
@@ -159,9 +158,7 @@
       desktopManager.gnome.enable = true;
 
       layout = "gb";
-
       videoDrivers = [ "nvidia" ];
-
       xkbVariant = "";
     };
   };
