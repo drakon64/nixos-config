@@ -42,6 +42,7 @@
     ];
 
     systemPackages = with pkgs; [
+      gnome.gnome-boxes
       jetbrains.idea-ultimate
       microsoft-edge
       vim
