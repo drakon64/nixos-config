@@ -14,11 +14,13 @@
       systemd-boot.enable = true;
     };
 
-    supportedFilesystems = {
-      bcachefs = true;
+    supportedFilesystems = [ "bcachefs" ];
+    # TODO: Enable this in NixOS 24.05
+    #supportedFilesystems = {
+    #  bcachefs = true;
 
-      zfs = lib.mkForce false;
-    };
+    #  zfs = lib.mkForce false;
+    #};
   };
 
   console.keyMap = "uk";
@@ -79,7 +81,16 @@
     networkmanager.enable = true;
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+
+    # TODO: Disable this in NixOS 24.05
+    overlays = [(final: super: {
+      zfs = super.zfs.overrideAttrs(_: {
+        meta.platforms = [];
+      });
+    })];
+  };
 
   programs.virt-manager.enable = true;
 
