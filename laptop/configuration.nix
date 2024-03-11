@@ -24,12 +24,8 @@
   environment = {
     gnome.excludePackages = with pkgs; [
       epiphany
-      gnome-connections
-      gnome.geary
-      gnome.gnome-calendar
       gnome.gnome-characters
       gnome.gnome-clocks
-      gnome.gnome-contacts
       gnome.gnome-font-viewer
       gnome.gnome-maps
       gnome.gnome-music
