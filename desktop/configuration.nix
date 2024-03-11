@@ -15,7 +15,11 @@
       systemd-boot.enable = true;
     };
 
-    supportedFilesystems = [ "bcachefs" ];
+    supportedFilesystems = {
+      bcachefs = true;
+
+      zfs = lib.mkForce false;
+    };
   };
 
   console.keyMap = "uk";
@@ -97,15 +101,7 @@
     networkmanager.enable = true;
   };
 
-  nixpkgs = {
-    config.allowUnfree = true;
-
-    overlays = [(final: super: {
-      zfs = super.zfs.overrideAttrs(_: {
-        meta.platforms = [];
-      });
-    })];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   programs = {
     _1password-gui.enable = true;
