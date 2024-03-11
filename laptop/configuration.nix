@@ -96,8 +96,6 @@
     })];
   };
 
-  programs.virt-manager.enable = true;
-
   services = {
     pipewire = {
       enable = true;
