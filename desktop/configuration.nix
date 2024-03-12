@@ -128,11 +128,6 @@
       settings.general.renice = 20;
     };
 
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-    };
-
     steam.enable = true;
   };
 
