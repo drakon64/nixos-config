@@ -53,11 +53,9 @@
       ffmpeg
       firefox
       jetbrains.idea-ultimate
-      jetbrains-toolbox
       # r2modman
       spotify
       vim
-      vscode
       # webcord
       xivlauncher
 
