@@ -57,6 +57,7 @@
       # r2modman
       spotify
       vim
+      vscode
       # webcord
       xivlauncher
 
