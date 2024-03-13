@@ -57,8 +57,7 @@
     nvidia = {
       modesetting.enable = true;
 
-      # TODO: Set this to `true` when the 550 driver reaches stable
-      open = false;
+      open = true;
     };
 
     pulseaudio.enable = lib.mkForce false;

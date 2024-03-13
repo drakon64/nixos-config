@@ -77,8 +77,7 @@
     nvidia = {
       modesetting.enable = true;
 
-      # TODO: Set this to `true` when the 550 driver reaches stable
-      open = false;
+      open = true;
     };
 
     opengl.driSupport32Bit = true;
