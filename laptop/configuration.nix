@@ -6,7 +6,6 @@
 #  ];
 
   boot = {
-    # TODO: Remove this when an LTS kernel is released with bcachefs support
     kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
@@ -52,15 +51,7 @@
     ];
   };
 
-  hardware = {
-    nvidia = {
-      modesetting.enable = true;
-
-      open = true;
-    };
-
-    pulseaudio.enable = lib.mkForce false;
-  };
+  hardware.pulseaudio.enable = lib.mkForce false;
 
   i18n = {
     defaultLocale = "en_GB.UTF-8";
@@ -103,8 +94,6 @@
       displayManager.gdm.enable = true;
 
       desktopManager.gnome.enable = true;
-
-      videoDrivers = [ "nvidia" ];
 
       xkb = {
         layout = "gb";
