@@ -15,13 +15,10 @@
       systemd-boot.enable = true;
     };
 
-    supportedFilesystems = [ "bcachefs" ];
-    # TODO: Enable this in NixOS 24.05
-    #supportedFilesystems = {
-    #  bcachefs = true;
-
-    #  zfs = lib.mkForce false;
-    #};
+    supportedFilesystems = {
+      bcachefs = true;
+      zfs = lib.mkForce false;
+    };
   };
 
   console.keyMap = "uk";
@@ -56,11 +53,11 @@
   };
 
   hardware = {
-#    nvidia = {
-#      modesetting.enable = true;
+    nvidia = {
+      modesetting.enable = true;
 
-#      open = true;
-#    };
+      open = true;
+    };
 
     pulseaudio.enable = lib.mkForce false;
   };
@@ -87,16 +84,7 @@
     networkmanager.enable = true;
   };
 
-  nixpkgs = {
-    config.allowUnfree = true;
-
-    # TODO: Disable this in NixOS 24.05
-    overlays = [(final: super: {
-      zfs = super.zfs.overrideAttrs(_: {
-        meta.platforms = [];
-      });
-    })];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   services = {
     pipewire = {
@@ -117,7 +105,7 @@
       desktopManager.gnome.enable = true;
 
       layout = "gb";
-#      videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "nvidia" ];
       xkbVariant = "";
     };
   };
