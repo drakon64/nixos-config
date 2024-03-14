@@ -8,7 +8,7 @@
 
   boot = {
     # TODO: Remove this when an LTS kernel is released with bcachefs support
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_7;
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -78,7 +78,7 @@
     nvidia = {
       modesetting.enable = true;
 
-      open = true;
+      open = false;
     };
 
     opengl.driSupport32Bit = true;
