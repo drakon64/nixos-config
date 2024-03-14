@@ -46,6 +46,7 @@
       gnome.gnome-boxes
       jetbrains.idea-ultimate
       microsoft-edge
+      python312
       vim
 
       gnomeExtensions.alphabetical-app-grid
