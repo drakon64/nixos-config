@@ -56,11 +56,11 @@
   };
 
   hardware = {
-    nvidia = {
-      modesetting.enable = true;
+#    nvidia = {
+#      modesetting.enable = true;
 
-      open = true;
-    };
+#      open = true;
+#    };
 
     pulseaudio.enable = lib.mkForce false;
   };
@@ -117,7 +117,7 @@
       desktopManager.gnome.enable = true;
 
       layout = "gb";
-      videoDrivers = [ "nvidia" ];
+#      videoDrivers = [ "nvidia" ];
       xkbVariant = "";
     };
   };
