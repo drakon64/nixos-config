@@ -40,7 +40,7 @@
 
     systemPackages = with pkgs; [
       gnome.gnome-boxes
-      jetbrains.idea-ultimate
+      jetbrains.pycharm-professional
       microsoft-edge
       vim
 
