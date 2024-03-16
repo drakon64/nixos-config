@@ -50,7 +50,15 @@
     ];
   };
 
-  hardware.pulseaudio.enable = lib.mkForce false;
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+
+      open = true;
+    };
+
+    pulseaudio.enable = lib.mkForce false;
+  };
 
   i18n = {
     defaultLocale = "en_GB.UTF-8";
