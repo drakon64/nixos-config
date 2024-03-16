@@ -40,8 +40,8 @@
 
     systemPackages = with pkgs; [
       gnome.gnome-boxes
-      jetbrains.pycharm-professional
       microsoft-edge
+      vscode
       vim
 
       gnomeExtensions.alphabetical-app-grid
