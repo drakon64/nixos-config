@@ -103,6 +103,7 @@
       xkb = {
         layout = "gb";
         variant = "";
+        videoDrivers = [ "nvidia" ];
       };
     };
   };
