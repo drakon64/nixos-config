@@ -6,6 +6,8 @@
 #  ];
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_6_8;
+
     loader = {
       efi.canTouchEfiVariables = true;
 

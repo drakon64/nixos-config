@@ -7,7 +7,6 @@
   ];
 
   boot = {
-    # TODO: Remove this when an LTS kernel is released with bcachefs support
     kernelPackages = pkgs.linuxPackages_6_7;
 
     loader = {
