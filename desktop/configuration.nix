@@ -128,7 +128,15 @@
       settings.general.renice = 20;
     };
 
-    steam.enable = true;
+    steam = {
+      enable = true;
+
+      package = pkgs.steam.override {
+        extraPkgs = (pkgs: with pkgs; [
+          gamemode
+        ]);
+      };
+    };
   };
 
   services = {
