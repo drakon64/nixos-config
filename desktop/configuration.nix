@@ -49,6 +49,7 @@
     sessionVariables.NIXOS_OZONE_WL = "1";
 
     systemPackages = with pkgs; [
+      blender
       ffmpeg
       firefox
       jetbrains.idea-ultimate
