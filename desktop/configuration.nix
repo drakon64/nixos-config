@@ -58,7 +58,7 @@
       vim
       vscode
       # webcord
-      xivlauncher
+      # xivlauncher
 
       gnomeExtensions.alphabetical-app-grid
       gnomeExtensions.appindicator
