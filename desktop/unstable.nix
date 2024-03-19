@@ -9,6 +9,6 @@ in
   environment.systemPackages = with pkgs; [
     unstable.r2modman
     unstable.webcord
-    unstable.xivlauncher
+    # unstable.xivlauncher
   ];
 }
