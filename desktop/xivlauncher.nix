@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 
 let
-  nr-ryantm = import
-    (builtins.fetchTarball hhttps://github.com/r-ryantm/nixpkgs/archive/9653c6ec84c8d56fffd5480533f5bde4c943e54e.tar.gz)
+  release = import
+    (builtins.fetchTarball hhttps://github.com/NixOS/nixpkgs/archive/8a26e1beb022d7e9a22d86cbbe1c444b68ebe4a4.tar.gz)
     { config = config.nixpkgs.config; };
 in
 {
   environment.systemPackages = with pkgs; [
-    nr-ryantm.xivlauncher
+    release.xivlauncher
   ];
 }
