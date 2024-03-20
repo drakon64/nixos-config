@@ -53,6 +53,7 @@
       blender
       ffmpeg
       firefox
+      gnome.gnome-boxes
       jetbrains.idea-ultimate
       # r2modman
       spotify
@@ -180,7 +181,9 @@
 
   users.users.adamc = {
     description = "Adam Chance";
-    extraGroups = [ "gamemode" "networkmanager" "wheel" ];
+    extraGroups = [ "gamemode" "libvirtd" "networkmanager" "wheel" ];
     isNormalUser = true;
   };
+
+  virtualisation.libvirtd.enable = true;
 }
