@@ -20,7 +20,6 @@
     # TODO: Enable this in NixOS 24.05
     #supportedFilesystems = {
     #  bcachefs = true;
-
     #  zfs = lib.mkForce false;
     #};
   };
