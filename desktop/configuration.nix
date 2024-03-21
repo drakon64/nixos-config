@@ -4,7 +4,6 @@
   imports = [
 #    ./hardware-configuration.nix
     ./unstable.nix
-    ./xivlauncher.nix
   ];
 
   boot = {
@@ -58,7 +57,7 @@
       spotify
       vim
       # webcord
-      # xivlauncher
+      xivlauncher
 
       gnomeExtensions.alphabetical-app-grid
       gnomeExtensions.appindicator
