@@ -4,8 +4,7 @@ on:
     branches:
       - main
     paths:
-      - laptop/configuration.nix
-      - laptop/live.nix
+      - laptop/*.nix
       - .github/workflows/laptop.yml
   workflow_dispatch:
 

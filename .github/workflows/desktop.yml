@@ -4,9 +4,7 @@ on:
     branches:
       - main
     paths:
-      - desktop/configuration.nix
-      - desktop/unstable.nix
-      - desktop/live.nix
+      - desktop/*.nix
       - .github/workflows/desktop.yml
   workflow_dispatch:
 
