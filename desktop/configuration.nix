@@ -4,6 +4,7 @@
   imports = [
 #    ./hardware-configuration.nix
     ./unstable.nix
+    ./xivlauncher.nix
   ];
 
   boot = {
