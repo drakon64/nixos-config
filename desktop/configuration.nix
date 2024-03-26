@@ -113,7 +113,10 @@
   };
 
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      allowUnsupportedSystem = true;
+    };
 
     # TODO: Disable this in NixOS 24.05
     overlays = [(final: super: {
