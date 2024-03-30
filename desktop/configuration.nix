@@ -46,7 +46,10 @@
       snapshot
     ];
 
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      SDL_VIDEODRIVER = "wayland";
+    };
 
     systemPackages = with pkgs; [
       blender
