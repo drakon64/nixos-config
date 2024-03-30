@@ -59,7 +59,7 @@
       spotify
       vim
       # webcord
-      xivlauncher
+      # xivlauncher
 
       gnomeExtensions.alphabetical-app-grid
       gnomeExtensions.appindicator
