@@ -50,6 +50,7 @@
 
     systemPackages = with pkgs; [
       blender
+      discord
       ffmpeg
       firefox
       gnome.gnome-boxes
