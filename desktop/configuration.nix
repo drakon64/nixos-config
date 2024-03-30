@@ -66,10 +66,6 @@
       gnomeExtensions.dash-to-dock
       gnomeExtensions.gamemode-indicator-in-system-settings
 
-      (blender.override {
-        cudaSupport = true;
-      })
-
       (wrapOBS {
         plugins = with obs-studio-plugins; [
           obs-pipewire-audio-capture
