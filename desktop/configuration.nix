@@ -85,8 +85,6 @@
       open = false;
     };
 
-    opengl.driSupport32Bit = true;
-
     pulseaudio.enable = lib.mkForce false;
   };
 
@@ -135,9 +133,7 @@
       settings.general.renice = 20;
     };
 
-    steam = {
-      enable = true;
-    };
+    steam.enable = true;
   };
 
   services = {
