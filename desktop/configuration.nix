@@ -134,7 +134,21 @@
       settings.general.renice = 20;
     };
 
-    steam.enable = true;
+    steam = {
+      enable = true;
+
+      package = pkgs.steam.override {
+        extraEnv = {
+          MANGOHUD = true;
+          OBS_VKCAPTURE = true;
+        };
+
+        extraPkgs = pkgs: with pkgs; [
+          gamemode
+          mangohud
+        ];
+      };
+    };
   };
 
   services = {
