@@ -58,6 +58,7 @@
       firefox
       gnome.gnome-boxes
       jetbrains.idea-ultimate
+      lutris
       # r2modman
       spotify
       vim
