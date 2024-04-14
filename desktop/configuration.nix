@@ -58,7 +58,7 @@
       firefox
       gnome.gnome-boxes
       jetbrains.idea-ultimate
-      lutris
+      mangohud
       # r2modman
       spotify
       vim
@@ -138,6 +138,8 @@
   };
 
   services = {
+    flatpak.enable = true;
+
     pipewire = {
       enable = true;
 
