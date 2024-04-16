@@ -41,6 +41,7 @@
       gnome.gnome-maps
       gnome.gnome-music
       gnome.simple-scan
+      gnome.gnome-software
       gnome-tour
       gnome.yelp
       snapshot
