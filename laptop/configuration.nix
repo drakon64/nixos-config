@@ -43,7 +43,6 @@
     systemPackages = with pkgs; [
       google-cloud-sdk
       microsoft-edge
-      vscode
       vim
 
       gnome.gnome-boxes
