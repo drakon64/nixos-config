@@ -1,9 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
-#  imports = [
+  imports = [
 #    ./hardware-configuration.nix
-#  ];
+    <home-manager/nixos>
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_6_8;
