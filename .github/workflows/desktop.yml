@@ -14,9 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: cachix/install-nix-action@v24
+      - uses: cachix/install-nix-action@v25
         with:
           nix_path: nixpkgs=channel:nixos-23.11
+
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
 
       - run: nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
 
