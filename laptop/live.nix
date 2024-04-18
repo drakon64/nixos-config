@@ -13,7 +13,7 @@
   services = {
     openssh.enable = true;
 
-    xserver.displayManager.autoLogin.user = lib.mkForce "adamc";
+    displayManager.autoLogin.user = lib.mkForce "adamc";
   };
 
   users.users.adamc = {
