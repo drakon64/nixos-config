@@ -13,7 +13,7 @@
 
     kernelModules = [ "kvm-amd" ];
 
-    boot.extraModulePackages = [ ];
+    extraModulePackages = [ ];
   };
 
   fileSystems = {
