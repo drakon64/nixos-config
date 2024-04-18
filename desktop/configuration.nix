@@ -2,7 +2,7 @@
 
 {
   imports = [
-#    ./hardware-configuration.nix
+    ./hardware-configuration.nix
 #    ./home.nix
     ./unstable.nix
     ./xivlauncher.nix
