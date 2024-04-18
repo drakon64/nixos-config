@@ -50,6 +50,8 @@
       gnomeExtensions.alphabetical-app-grid
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-dock
+
+      jetbrains.idea-ultimate
     ];
   };
 
