@@ -32,6 +32,7 @@
   environment = {
     gnome.excludePackages = with pkgs; [
       epiphany
+      evince
       gnome-connections
       gnome.geary
       gnome.gnome-calendar

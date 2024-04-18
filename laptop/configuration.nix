@@ -28,6 +28,7 @@
   environment = {
     gnome.excludePackages = with pkgs; [
       epiphany
+      evince
       gnome.gnome-characters
       gnome.gnome-clocks
       gnome.gnome-font-viewer
