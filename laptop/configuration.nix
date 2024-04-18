@@ -3,7 +3,7 @@
 {
   imports = [
 #    ./hardware-configuration.nix
-    <home-manager/nixos>
+    ./home.nix
   ];
 
   boot = {
