@@ -20,10 +20,6 @@ jobs:
 
       - uses: DeterminateSystems/magic-nix-cache-action@v2
 
-      - run: nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-
-      - run: nix-channel --update
-
       - run: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=laptop/live.nix
 
       - uses: actions/upload-artifact@v4.0.0
