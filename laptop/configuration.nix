@@ -62,7 +62,7 @@
       open = true;
     };
 
-    pulseaudio.enable = lib.mkForce false;
+    pulseaudio.enable = false;
   };
 
   i18n = {
