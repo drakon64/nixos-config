@@ -155,6 +155,8 @@
   services = {
     flatpak.enable = true;
 
+    fwupd.enable = true;
+
     pipewire = {
       enable = true;
 

@@ -90,6 +90,8 @@
   nixpkgs.config.allowUnfree = true;
 
   services = {
+    fwupd.enable = true;
+
     pipewire = {
       enable = true;
 
