@@ -64,7 +64,6 @@
       # r2modman
       spotify
       vim
-      # webcord
       # xivlauncher
 
       gnomeExtensions.alphabetical-app-grid
