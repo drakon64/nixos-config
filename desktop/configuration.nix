@@ -43,7 +43,6 @@
       gnome.gnome-maps
       gnome.gnome-music
       gnome.simple-scan
-      gnome.gnome-software
       gnome-tour
       gnome.yelp
       snapshot
@@ -156,8 +155,6 @@
     # desktopManager.cosmic.enable = true;
 
     # displayManager.cosmic-greeter.enable = true;
-
-    flatpak.enable = true;
 
     fwupd.enable = true;
 
