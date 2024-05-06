@@ -142,11 +142,6 @@
           MANGOHUD = true;
           OBS_VKCAPTURE = true;
         };
-
-        extraPkgs = pkgs: with pkgs; [
-          gamemode
-          mangohud
-        ];
       };
     };
   };
