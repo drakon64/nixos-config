@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./home.nix
     ./unstable.nix
     ./xivlauncher.nix
   ];
@@ -57,7 +56,6 @@
       discord
       ffmpeg
       firefox
-      gnome.gnome-boxes
       jetbrains.idea-ultimate
       mangohud
       # r2modman
