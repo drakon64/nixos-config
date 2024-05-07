@@ -142,6 +142,8 @@
         };
       };
     };
+
+    virt-manager.enable = true;
   };
 
   services = {
