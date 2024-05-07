@@ -1,7 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_6_8;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_6_8;
+    kernelParams = [ "nvidia_drm.fbdev=1" ];
+  };
 
   hardware = {
     nvidia = {
