@@ -189,9 +189,7 @@
 
   users.users.adamc = {
     description = "Adam Chance";
-    extraGroups = [ "gamemode" "libvirtd" "networkmanager" "wheel" ];
+    extraGroups = [ "gamemode" "networkmanager" "wheel" ];
     isNormalUser = true;
   };
-
-  virtualisation.libvirtd.enable = true;
 }
