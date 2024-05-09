@@ -16,12 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.4
 
-      - uses: cachix/install-nix-action@v26
+      - uses: DeterminateSystems/nix-installer-action@v10
         with:
-          extra_nix_config: |
+          extra-conf: |
             substituters = https://cosmic.cachix.org/
             trusted-public-keys = cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=
-          nix_path: nixpkgs=channel:nixos-unstable
 
       - uses: DeterminateSystems/magic-nix-cache-action@v4
 
