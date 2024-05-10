@@ -189,9 +189,7 @@
 
   users.users.adamc = {
     description = "Adam Chance";
-    extraGroups = [ "gamemode" "networkmanager" "vboxusers" "wheel" ];
+    extraGroups = [ "gamemode" "networkmanager" "wheel" ];
     isNormalUser = true;
   };
-
-  virtualisation.virtualbox.host.enable = true;
 }
