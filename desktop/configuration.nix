@@ -8,7 +8,7 @@
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_8;
+    kernelPackages = pkgs.linuxPackages_xanmod_stable;
 
     loader = {
       efi.canTouchEfiVariables = true;
