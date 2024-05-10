@@ -27,11 +27,5 @@
 
       cosmic-greeter.enable = true;
     };
-
-    xserver.videoDrivers = [ "virtualbox" "vmware" "cirrus" "vesa" "modesetting" ];
   };
-
-  users.users.nixos.extraGroups = [ "vboxsf" ];
-
-  virtualisation.virtualbox.guest.enable = lib.mkForce true;
 }
