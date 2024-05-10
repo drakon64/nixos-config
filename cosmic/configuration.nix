@@ -27,5 +27,7 @@
 
       cosmic-greeter.enable = true;
     };
+
+    xserver.excludePackages = [ pkgs.xterm ];
   };
 }
