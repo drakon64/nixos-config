@@ -22,22 +22,10 @@
       cosmic-greeter.enable = true;
     };
 
-    qemuGuest.enable = lib.mkForce false;
-
-    spice-vdagentd.enable = lib.mkForce false;
-
-    xe-guest-utilities.enable = lib.mkForce false;
-
     xserver.videoDrivers = [ "virtualbox" "vmware" "cirrus" "vesa" "modesetting" ];
   };
 
   users.users.nixos.extraGroups = [ "vboxsf" ];
 
-  virtualisation = {
-    hypervGuest.enable = lib.mkForce false;
-
-    virtualbox.guest.enable = lib.mkForce true;
-
-    vmware.guest.enable = lib.mkForce false;
-  };
+  virtualisation.virtualbox.guest.enable = lib.mkForce true;
 }
