@@ -1,7 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_6_8;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_6_8;
+
+    supportedFilesystems.zfs = lib.mkForce false;
+  };
 
   hardware.pulseaudio.enable = lib.mkForce false;
 
