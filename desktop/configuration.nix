@@ -16,6 +16,8 @@
       systemd-boot.enable = true;
     };
 
+    plymouth.enable = true;
+
     supportedFilesystems = [ "bcachefs" ];
     # TODO: Enable this in NixOS 24.05
     #supportedFilesystems = {
