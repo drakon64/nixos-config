@@ -30,6 +30,18 @@
       cosmic-greeter.enable = true;
     };
 
+    qemuGuest.enable = lib.mkForce false;
+
+    spice-vdagentd.enable = lib.mkForce false;
+
+    xe-guest-utilities.enable = lib.mkForce false;
+
     xserver.excludePackages = [ pkgs.xterm ];
+  };
+
+  virtualisation = {
+    hypervGuest.enable = lib.mkForce false;
+
+    vmware.guest.enable = lib.mkForce false;
   };
 }
