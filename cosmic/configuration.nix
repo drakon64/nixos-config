@@ -4,6 +4,8 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_6_8;
 
+    loader.grub.memtest86.enable = lib.mkForce false;
+
     supportedFilesystems.zfs = lib.mkForce false;
   };
 
