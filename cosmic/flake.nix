@@ -13,6 +13,7 @@
       cosmic = nixpkgs.lib.nixosSystem {
         modules = [
           nixos-cosmic.nixosModules.default
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
           ./configuration.nix
         ];

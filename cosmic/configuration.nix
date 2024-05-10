@@ -7,7 +7,17 @@
     supportedFilesystems.zfs = lib.mkForce false;
   };
 
+  documentation = {
+    doc.enable = lib.mkForce false;
+
+    man.enable = lib.mkForce false;
+  };
+
+  environment.noXlibs = lib.mkForce true;
+
   hardware.pulseaudio.enable = lib.mkForce false;
+
+  isoImage.edition = lib.mkForce "cosmic";
 
   networking.hostName = "cosmic";
 
