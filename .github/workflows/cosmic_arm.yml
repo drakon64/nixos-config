@@ -1,0 +1,33 @@
+name: "COSMIC ARM Live ISO"
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - cosmic_arm/*.nix
+      - .github/workflows/cosmic_arm.yml
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: codebuild-nixos-cosmic-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v4.1.4
+
+      - uses: DeterminateSystems/nix-installer-action@v10
+        with:
+          extra-conf: |
+            substituters = https://cosmic.cachix.org/
+            trusted-public-keys = cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=
+
+      - uses: DeterminateSystems/magic-nix-cache-action@v4
+
+      - run: nix build .#nixosConfigurations.cosmic.config.system.build.isoImage
+        working-directory: cosmic_arm
+
+      - uses: actions/upload-artifact@v4.3.3
+        with:
+          path: cosmic_arm/result/iso/*.iso
+          compression-level: 0
