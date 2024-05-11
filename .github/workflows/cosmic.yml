@@ -1,11 +1,5 @@
 name: "COSMIC Live ISO"
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - cosmic/*.nix
-      - .github/workflows/cosmic.yml
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:

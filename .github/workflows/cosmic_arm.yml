@@ -1,11 +1,5 @@
 name: "COSMIC ARM Live ISO"
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - cosmic_arm/*.nix
-      - .github/workflows/cosmic_arm.yml
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
@@ -29,9 +23,9 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@v4
 
       - run: nix build .#nixosConfigurations.cosmic.config.system.build.isoImage
-        working-directory: cosmic_arm
+        working-directory: cosmic
 
       - uses: actions/upload-artifact@v4.3.3
         with:
-          path: cosmic_arm/result/iso/*.iso
+          path: cosmic/result/iso/*.iso
           compression-level: 0
