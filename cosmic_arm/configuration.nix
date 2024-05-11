@@ -2,7 +2,7 @@
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_8;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     loader.grub.memtest86.enable = lib.mkForce false;
 
