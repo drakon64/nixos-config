@@ -21,8 +21,10 @@ jobs:
           extra-conf: |
             cores = 0
             max-jobs = auto
-            substituters = https://cosmic.cachix.org/
-            trusted-public-keys = cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=
+            substituters = https://cache.nixos.org/
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+            extra-substituters = https://cosmic.cachix.org/
+            extra-trusted-public-keys = cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=
 
       - uses: DeterminateSystems/magic-nix-cache-action@v4
 
