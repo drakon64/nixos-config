@@ -19,6 +19,8 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@v10
         with:
           extra-conf: |
+            cores = 0
+            max-jobs = auto
             substituters = https://cosmic.cachix.org/
             trusted-public-keys = cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=
 
