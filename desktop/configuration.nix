@@ -142,7 +142,9 @@
       package = pkgs.steam.override {
         extraEnv = {
           MANGOHUD = true;
+          NIXOS_OZONE_WL = false;
           OBS_VKCAPTURE = true;
+          SDL_VIDEODRIVER = "x11";
         };
       };
     };
