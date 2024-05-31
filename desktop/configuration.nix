@@ -3,12 +3,12 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./unstable.nix
     ./xivlauncher.nix
   ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_xanmod_stable;
+    kernelParams = [ "nvidia_drm.fbdev=1" ];
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -18,12 +18,10 @@
 
     plymouth.enable = true;
 
-    supportedFilesystems = [ "bcachefs" ];
-    # TODO: Enable this in NixOS 24.05
-    #supportedFilesystems = {
-    #  bcachefs = true;
-    #  zfs = lib.mkForce false;
-    #};
+    supportedFilesystems = {
+      bcachefs = true;
+      zfs = lib.mkForce false;
+    };
   };
 
   console.keyMap = "uk";
@@ -60,7 +58,7 @@
       firefox
       jetbrains.idea-ultimate
       mangohud
-      # r2modman
+      r2modman
       spotify
       vim
       # xivlauncher
@@ -83,7 +81,7 @@
     nvidia = {
       modesetting.enable = true;
 
-      open = false;
+      open = true;
     };
 
     pulseaudio.enable = false;
@@ -113,19 +111,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnsupportedSystem = true;
-    };
-
-    # TODO: Disable this in NixOS 24.05
-    overlays = [(final: super: {
-      zfs = super.zfs.overrideAttrs(_: {
-        meta.platforms = [];
-      });
-    })];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   programs = {
     _1password-gui.enable = true;
@@ -151,7 +137,7 @@
   };
 
   services = {
-    # desktopManager.cosmic.enable = true;
+    desktopManager.cosmic.enable = true;
 
     # displayManager.cosmic-greeter.enable = true;
 
@@ -177,9 +163,12 @@
 
       desktopManager.gnome.enable = true;
 
-      layout = "gb";
       videoDrivers = [ "nvidia" ];
-      xkbVariant = "";
+
+      xkb = {
+        layout = "gb";
+        variant = "";
+      };
     };
   };
 
