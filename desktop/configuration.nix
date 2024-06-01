@@ -87,7 +87,7 @@
     nvidia = {
       modesetting.enable = true;
 
-      open = true;
+      open = false;
     };
 
     pulseaudio.enable = false;
