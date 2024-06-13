@@ -8,7 +8,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_xanmod_stable;
-    kernelParams = [ "nvidia_drm.fbdev=1" ];
+    kernelParams = [ "amd_pstate=active" "initcall_blacklist=acpi_cpufreq_init" "nvidia_drm.fbdev=1" ];
 
     loader = {
       efi.canTouchEfiVariables = true;
