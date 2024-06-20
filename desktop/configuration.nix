@@ -16,8 +16,6 @@
       systemd-boot.enable = true;
     };
 
-    plymouth.enable = true;
-
     supportedFilesystems = {
       bcachefs = true;
       zfs = lib.mkForce false;
