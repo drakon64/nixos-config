@@ -46,6 +46,7 @@
     ];
 
     sessionVariables = {
+      MOZ_ENABLE_WAYLAND = "0";
       NIXOS_OZONE_WL = "1";
       SDL_VIDEODRIVER = "wayland";
     };
