@@ -2,13 +2,13 @@
 
 let
   rb = import
-    (builtins.fetchTarball https://github.com/sersorrel/nixpkgs/archive/86555373894cba05cdbbb274d9b412b87e76ad98.tar.gz)
+    (builtins.fetchTarball https://github.com/drakon64/nixpkgs/archive/6d1432f091f8cf7cda25568a602014043755d5a6.tar.gz)
     { config = config.nixpkgs.config; };
 in {
   environment.systemPackages = with pkgs; [
     (rb.xivlauncher.override {
-#      useGameMode = true;
-#      useRbPatchedLauncher = true;
+      useGameMode = true;
+      useRbPatchedLauncher = true;
     })
   ];
 }
