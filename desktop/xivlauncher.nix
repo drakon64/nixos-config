@@ -2,7 +2,7 @@
 
 let
   rb = import
-    (builtins.fetchTarball https://github.com/drakon64/nixpkgs/archive/6d1432f091f8cf7cda25568a602014043755d5a6.tar.gz)
+    (builtins.fetchTarball https://github.com/drakon64/nixpkgs/archive/05acfe3e5c445de9d2c38eb2ab5f046ab8138ea9.tar.gz)
     { config = config.nixpkgs.config; };
 in {
   environment.systemPackages = with pkgs; [
