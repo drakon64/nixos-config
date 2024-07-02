@@ -136,6 +136,8 @@
       settings.general.renice = 20;
     };
 
+    gamescope.enable = true;
+
     steam = {
       enable = true;
 
