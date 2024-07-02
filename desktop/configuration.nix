@@ -56,6 +56,7 @@
       ffmpeg
       firefox
       jetbrains.idea-ultimate
+      killall
       mangohud
       r2modman
       spotify
