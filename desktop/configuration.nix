@@ -53,6 +53,7 @@
 
     systemPackages = with pkgs; [
       discord
+      element-desktop
       ffmpeg
       firefox
       jetbrains.idea-ultimate
