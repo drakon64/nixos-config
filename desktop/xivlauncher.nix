@@ -1,14 +1,18 @@
 { config, pkgs, ... }:
 
 let
-  rb = import
-    (builtins.fetchTarball https://github.com/drakon64/nixpkgs/archive/f1f87de3fd5f18f18e7b5cea15d288086c929694.tar.gz)
-    { config = config.nixpkgs.config; };
+  rb = import (pkgs.fetchFromGitHub {
+    owner = "drakon64";
+    repo = "nixos-xivlauncher-rb";
+    rev = "646b92f779395b7dddb42d0463c17be6e8596470";
+    hash = "sha256-1AI4+VH8YrNCSVjAtHQjNwnC/inqDWKmFeXLeI5dLNw=";
+  }) { inherit pkgs; };
 in {
-  environment.systemPackages = with pkgs; [
-    (rb.xivlauncher.override {
-      useGameMode = true;
-      useRbPatchedLauncher = true;
-    })
+  environment.systemPackages = [
+#    (rb.xivlauncher.override {
+#      useGameMode = true;
+#      useRbPatchedLauncher = true;
+#    })
+    rb.xivlauncher-rb
   ];
 }
