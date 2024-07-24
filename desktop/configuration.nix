@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./xivlauncher.nix
   ];
 
   boot = {
@@ -62,7 +61,6 @@
       r2modman
       spotify
       vim
-      # xivlauncher
 
       gnomeExtensions.alphabetical-app-grid
       gnomeExtensions.appindicator
