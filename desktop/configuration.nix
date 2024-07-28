@@ -61,6 +61,7 @@
       r2modman
       spotify
       vim
+      yt-dlp
 
       gnomeExtensions.alphabetical-app-grid
       gnomeExtensions.appindicator
