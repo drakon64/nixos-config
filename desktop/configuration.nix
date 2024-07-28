@@ -9,6 +9,30 @@
     kernelPackages = pkgs.linuxPackages_6_10;
     kernelParams = [ "amd_pstate=active" "initcall_blacklist=acpi_cpufreq_init" "nvidia_drm.fbdev=1" ];
 
+    kernelPatches = [
+      {
+        name = "cachyos-base-all";
+        patch = (pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/eff77909a6f66560c4ffed38f6a012a9235538e5/6.10/all/0001-cachyos-base-all.patch";
+          hash = "sha256-lZbElRTvhc6u6rEQAbpdRSPLUj/rPTqKX1ZFdMTMZlo=";
+        });
+      }
+      {
+        name = "sched-ext";
+        patch = (pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/eff77909a6f66560c4ffed38f6a012a9235538e5/6.10/sched/0001-sched-ext.patch";
+          hash = "sha256-VHuXqMEHCaGXTOaN4df1Ey6+D1T0SFtFJrClI7FBBZA=";
+        });
+      }
+      {
+        name = "bore-cachy-ext";
+        patch = (pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/eff77909a6f66560c4ffed38f6a012a9235538e5/6.10/sched/0001-bore-cachy-ext.patch";
+          hash = "sha256-kl/wLeR/Yuh5itoJfIkldtRtKYL5EXKwc7WI59T4DAA=";
+        });
+      }
+    ];
+
     loader = {
       efi.canTouchEfiVariables = true;
 
