@@ -7,7 +7,12 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_6_10;
-    kernelParams = [ "amd_pstate=active" "initcall_blacklist=acpi_cpufreq_init" "nvidia_drm.fbdev=1" ];
+
+    kernelParams = [
+      "amd_pstate=active"
+      "initcall_blacklist=acpi_cpufreq_init"
+      "nvidia_drm.fbdev=1"
+    ];
 
     kernelPatches = [
       {
