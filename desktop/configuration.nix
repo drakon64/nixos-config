@@ -21,7 +21,6 @@
     kernelPatches = [
       {
         name = "cachyos-base-all";
-
         patch = (
           pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/all/0001-cachyos-base-all.patch";
@@ -30,8 +29,8 @@
         );
 
         extraStructuredConfig = with lib.kernel; {
-          #GENERIC_CPU = no;
-          #ZNVER3 = yes;
+          GENERIC_CPU = no;
+          MZEN3 = yes;
 
           CACHY = yes;
 
@@ -41,12 +40,10 @@
           HZ_1000 = yes;
           HZ = freeform "1000";
 
-          NR_CPUS = freeform "16";
+          NR_CPUS = lib.mkForce (freeform "16");
 
           HZ_PERIODIC = no;
           NO_HZ_IDLE = no;
-          CONTEXT_TRACKING_FORCE = no;
-          NO_HZ_FULL_NODEF = yes;
           NO_HZ_FULL = yes;
           NO_HZ = yes;
           NO_HZ_COMMON = yes;
@@ -54,8 +51,8 @@
 
           PREEMPT_BUILD = yes;
           PREEMPT_NONE = no;
-          PREEMPT_VOLUNTARY = no;
-          PREEMPT = yes;
+          PREEMPT_VOLUNTARY = lib.mkForce (no);
+          PREEMPT = lib.mkForce (yes);
           PREEMPT_COUNT = yes;
           PREEMPTION = yes;
           PREEMPT_DYNAMIC = yes;
@@ -63,21 +60,19 @@
           CC_OPTIMIZE_FOR_PERFORMANCE = no;
           CC_OPTIMIZE_FOR_PERFORMANCE_O3 = yes;
 
-          TCP_CONG_CUBIC = module;
-          DEFAULT_CUBIC = no;
+          TCP_CONG_CUBIC = lib.mkForce (module);
           TCP_CONG_BBR = yes;
           DEFAULT_BBR = yes;
           DEFAULT_TCP_CONG = freeform "bbr";
 
-          TRANSPARENT_HUGEPAGE_MADVISE = no;
-          TRANSPARENT_HUGEPAGE_ALWAYS = yes;
+          TRANSPARENT_HUGEPAGE_MADVISE = lib.mkForce (no);
+          TRANSPARENT_HUGEPAGE_ALWAYS = lib.mkForce (yes);
 
           USER_NS = yes;
         };
       }
       {
         name = "sched-ext";
-
         patch = (
           pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-sched-ext.patch";
@@ -91,15 +86,13 @@
           BPF_SYSCALL = yes;
           BPF_JIT = yes;
           DEBUG_INFO_BTF = yes;
-          BPF_JIT_ALWAYS_ON = yes;
+          BPF_JIT_ALWAYS_ON = lib.mkForce (yes);
           BPF_JIT_DEFAULT_ON = yes;
           PAHOLE_HAS_SPLIT_BTF = yes;
-          PAHOLE_HAS_BTF_TAG = yes;
         };
       }
       {
         name = "bore-cachy-ext";
-
         patch = (
           pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-bore-cachy-ext.patch";
