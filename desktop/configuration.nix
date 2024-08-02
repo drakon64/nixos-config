@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_6_10;
@@ -18,10 +21,14 @@
     kernelPatches = [
       {
         name = "cachyos-base-all";
-        patch = (pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/all/0001-cachyos-base-all.patch";
-          hash = "sha256-lZbElRTvhc6u6rEQAbpdRSPLUj/rPTqKX1ZFdMTMZlo=";
-        });
+
+        patch = (
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/all/0001-cachyos-base-all.patch";
+            hash = "sha256-lZbElRTvhc6u6rEQAbpdRSPLUj/rPTqKX1ZFdMTMZlo=";
+          }
+        );
+
         extraStructuredConfig = with lib.kernel; {
           #GENERIC_CPU = no;
           #ZNVER3 = yes;
@@ -70,10 +77,14 @@
       }
       {
         name = "sched-ext";
-        patch = (pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-sched-ext.patch";
-          hash = "sha256-VHuXqMEHCaGXTOaN4df1Ey6+D1T0SFtFJrClI7FBBZA=";
-        });
+
+        patch = (
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-sched-ext.patch";
+            hash = "sha256-VHuXqMEHCaGXTOaN4df1Ey6+D1T0SFtFJrClI7FBBZA=";
+          }
+        );
+
         extraStructuredConfig = with lib.kernel; {
           BPF = yes;
           SCHED_CLASS_EXT = yes;
@@ -88,10 +99,14 @@
       }
       {
         name = "bore-cachy-ext";
-        patch = (pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-bore-cachy-ext.patch";
-          hash = "sha256-kl/wLeR/Yuh5itoJfIkldtRtKYL5EXKwc7WI59T4DAA=";
-        });
+
+        patch = (
+          pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-bore-cachy-ext.patch";
+            hash = "sha256-kl/wLeR/Yuh5itoJfIkldtRtKYL5EXKwc7WI59T4DAA=";
+          }
+        );
+
         extraStructuredConfig = with lib.kernel; {
           SCHED_BORE = yes;
           MIN_BASE_SLICE_NS = freeform "1000000";
@@ -214,7 +229,10 @@
     networkmanager.enable = true;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -287,7 +305,11 @@
 
   users.users.adamc = {
     description = "Adam Chance";
-    extraGroups = [ "gamemode" "networkmanager" "wheel" ];
+    extraGroups = [
+      "gamemode"
+      "networkmanager"
+      "wheel"
+    ];
     isNormalUser = true;
   };
 }

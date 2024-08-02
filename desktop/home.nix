@@ -1,13 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    <home-manager/nixos>
-  ];
+  imports = [ <home-manager/nixos> ];
 
   home = {
     homeDirectory = "/home/adamc";
-    stateVersion = "23.11";
+    stateVersion = "24.05";
     username = "adamc";
   };
 
