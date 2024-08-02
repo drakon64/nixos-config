@@ -20,6 +20,22 @@
       "nvidia_drm.fbdev=1"
     ];
 
+    kernelPatches = [
+      {
+        name = "config";
+        patch = null;
+
+        extraStructuredConfig = with lib.kernel; {
+          DRM_AMDGPU = no;
+
+          GENERIC_CPU = no;
+          MZEN3 = yes;
+
+          NR_CPUS = lib.mkForce (freeform "16");
+        };
+      }
+    ];
+
     loader = {
       efi.canTouchEfiVariables = true;
 

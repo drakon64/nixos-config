@@ -16,9 +16,6 @@ in
       );
 
       extraStructuredConfig = with lib.kernel; {
-        GENERIC_CPU = no;
-        MZEN3 = yes;
-
         CACHY = yes;
 
         LTO_NONE = yes;
@@ -27,7 +24,7 @@ in
         HZ_1000 = yes;
         HZ = freeform "1000";
 
-        NR_CPUS = lib.mkForce (freeform "16");
+        NR_CPUS = lib.mkOverride 60 (freeform "320");
 
         HZ_PERIODIC = no;
         NO_HZ_IDLE = no;
@@ -38,8 +35,8 @@ in
 
         PREEMPT_BUILD = yes;
         PREEMPT_NONE = no;
-        PREEMPT_VOLUNTARY = lib.mkForce no;
-        PREEMPT = lib.mkForce yes;
+        PREEMPT_VOLUNTARY = lib.mkOverride 60 no;
+        PREEMPT = lib.mkOverride 60 yes;
         PREEMPT_COUNT = yes;
         PREEMPTION = yes;
         PREEMPT_DYNAMIC = yes;
@@ -47,13 +44,13 @@ in
         CC_OPTIMIZE_FOR_PERFORMANCE = no;
         CC_OPTIMIZE_FOR_PERFORMANCE_O3 = yes;
 
-        TCP_CONG_CUBIC = lib.mkForce module;
+        TCP_CONG_CUBIC = lib.mkOverride 60 module;
         TCP_CONG_BBR = yes;
         DEFAULT_BBR = yes;
         DEFAULT_TCP_CONG = freeform "bbr";
 
-        TRANSPARENT_HUGEPAGE_MADVISE = lib.mkForce no;
-        TRANSPARENT_HUGEPAGE_ALWAYS = lib.mkForce yes;
+        TRANSPARENT_HUGEPAGE_MADVISE = lib.mkOverride 60 no;
+        TRANSPARENT_HUGEPAGE_ALWAYS = lib.mkOverride 60 yes;
 
         USER_NS = yes;
       };
