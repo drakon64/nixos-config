@@ -14,25 +14,75 @@
       "nvidia_drm.fbdev=1"
     ];
 
+    # https://github.com/NixOS/nixpkgs/pull/330917
     kernelPatches = [
       {
         name = "cachyos-base-all";
         patch = (pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/eff77909a6f66560c4ffed38f6a012a9235538e5/6.10/all/0001-cachyos-base-all.patch";
+          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/all/0001-cachyos-base-all.patch";
           hash = "sha256-lZbElRTvhc6u6rEQAbpdRSPLUj/rPTqKX1ZFdMTMZlo=";
         });
+        extraStructuredConfig = with lib.kernel; {
+          #GENERIC_CPU = no;
+          #ZNVER3 = yes;
+
+          CACHY = yes;
+
+          SCHED_CLASS_EXT = yes;
+          SCHED_BORE = yes;
+          MIN_BASE_SLICE_NS = freeform "1000000";
+
+          LTO_NONE = yes;
+
+          HZ_300 = no;
+          HZ_1000 = yes;
+          HZ = freeform "1000";
+
+          NR_CPUS = freeform "16";
+
+          HZ_PERIODIC = no;
+          NO_HZ_IDLE = no;
+          CONTEXT_TRACKING_FORCE = no;
+          NO_HZ_FULL_NODEF = yes;
+          NO_HZ_FULL = yes;
+          NO_HZ = yes;
+          NO_HZ_COMMON = yes;
+          CONTEXT_TRACKING = yes;
+
+          PREEMPT_BUILD = yes;
+          PREEMPT_NONE = no;
+          PREEMPT_VOLUNTARY = no;
+          PREEMPT = yes;
+          PREEMPT_COUNT = yes;
+          PREEMPTION = yes;
+          PREEMPT_DYNAMIC = yes;
+
+          CC_OPTIMIZE_FOR_PERFORMANCE = no;
+          CC_OPTIMIZE_FOR_PERFORMANCE_O3 = yes;
+
+          TCP_CONG_CUBIC = module;
+          DEFAULT_CUBIC = no;
+          TCP_CONG_BBR = yes;
+          DEFAULT_BBR = yes;
+          DEFAULT_TCP_CONG = freeform "bbr";
+
+          TRANSPARENT_HUGEPAGE_MADVISE = no;
+          TRANSPARENT_HUGEPAGE_ALWAYS = yes;
+
+          USER_NS = yes;
+        };
       }
       {
         name = "sched-ext";
         patch = (pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/eff77909a6f66560c4ffed38f6a012a9235538e5/6.10/sched/0001-sched-ext.patch";
+          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-sched-ext.patch";
           hash = "sha256-VHuXqMEHCaGXTOaN4df1Ey6+D1T0SFtFJrClI7FBBZA=";
         });
       }
       {
         name = "bore-cachy-ext";
         patch = (pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/eff77909a6f66560c4ffed38f6a012a9235538e5/6.10/sched/0001-bore-cachy-ext.patch";
+          url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-bore-cachy-ext.patch";
           hash = "sha256-kl/wLeR/Yuh5itoJfIkldtRtKYL5EXKwc7WI59T4DAA=";
         });
       }
