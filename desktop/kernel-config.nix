@@ -1,0 +1,42 @@
+{ lib, ... }:
+
+{
+  boot.kernelPatches = [
+    {
+      name = "config";
+      patch = null;
+
+      extraStructuredConfig = with lib.kernel; {
+        DRM_AMDGPU = no;
+
+        GENERIC_CPU = no;
+        MZEN3 = yes;
+
+        X86_INTEL_PSTATE = lib.mkForce no;
+
+        NUMA = lib.mkForce no;
+        NUMA_BALANCING = lib.mkForce no;
+
+        INFINIBAND = lib.mkForce no;
+        INFINIBAND_IPOIB = lib.mkForce no;
+        INFINIBAND_IPOIB_CM = lib.mkForce no;
+
+        X86_SGX = lib.mkForce false;
+
+        XEN = lib.mkForce no;
+
+        ACPI_HOTPLUG_CPU = lib.mkForce no;
+        ACPI_HOTPLUG_MEMORY = lib.mkForce no;
+        MEMORY_HOTPLUG = lib.mkForce no;
+        MEMORY_HOTREMOVE = lib.mkForce no;
+        HOTPLUG_CPU = lib.mkForce no;
+        MIGRATION = lib.mkForce no;
+        SPARSEMEM = lib.mkForce no;
+
+        NR_CPUS = lib.mkForce (freeform "16");
+
+        INTEL_TURBO_MAX_3 = lib.mkForce false;
+      };
+    }
+  ];
+}
