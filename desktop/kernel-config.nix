@@ -31,6 +31,8 @@
 
         INTEL_HFI_THERMAL = lib.mkForce no;
 
+        MEMORY_FAILURE = lib.mkForce no;
+
         NUMA = lib.mkForce no;
         NUMA_BALANCING = lib.mkForce no;
 
