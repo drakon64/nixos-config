@@ -69,6 +69,7 @@
       jetbrains.idea-ultimate
       killall
       mangohud
+      nixfmt-rfc-style
       r2modman
       spotify
       vim
