@@ -29,6 +29,8 @@
         MFD_TPS68470 = lib.mkForce no;
         TPS68470_PMIC_OPREGION = lib.mkForce no;
 
+        INTEL_HFI_THERMAL = lib.mkForce no;
+
         NUMA = lib.mkForce no;
         NUMA_BALANCING = lib.mkForce no;
 
