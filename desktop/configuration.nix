@@ -5,6 +5,10 @@
   ...
 }:
 
+let
+  kernelVersion = "6.10";
+  cachyRev = "f036a67118ed302c3611e82e0234f8d4279079af";
+in
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -23,7 +27,7 @@
         name = "cachyos-base-all";
         patch = (
           pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/all/0001-cachyos-base-all.patch";
+            url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/${cachyRev}/${kernelVersion}/all/0001-cachyos-base-all.patch";
             hash = "sha256-lZbElRTvhc6u6rEQAbpdRSPLUj/rPTqKX1ZFdMTMZlo=";
           }
         );
@@ -72,31 +76,11 @@
         };
       }
       {
-        name = "sched-ext";
+        name = "bore-cachy";
         patch = (
           pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-sched-ext.patch";
-            hash = "sha256-VHuXqMEHCaGXTOaN4df1Ey6+D1T0SFtFJrClI7FBBZA=";
-          }
-        );
-
-        extraStructuredConfig = with lib.kernel; {
-          BPF = yes;
-          SCHED_CLASS_EXT = yes;
-          BPF_SYSCALL = yes;
-          BPF_JIT = yes;
-          DEBUG_INFO_BTF = yes;
-          BPF_JIT_ALWAYS_ON = lib.mkForce (yes);
-          BPF_JIT_DEFAULT_ON = yes;
-          PAHOLE_HAS_SPLIT_BTF = yes;
-        };
-      }
-      {
-        name = "bore-cachy-ext";
-        patch = (
-          pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-bore-cachy-ext.patch";
-            hash = "sha256-kl/wLeR/Yuh5itoJfIkldtRtKYL5EXKwc7WI59T4DAA=";
+            url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/${cachyRev}/${kernelVersion}/sched/0001-bore-cachy.patch";
+            hash = "sha256-qSRPWTMsRigTQpaEWP6shrlIfkaeRz/Lm/XgWYBQwbE=";
           }
         );
 
