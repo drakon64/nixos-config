@@ -28,10 +28,6 @@
 
           CACHY = yes;
 
-          SCHED_CLASS_EXT = yes;
-          SCHED_BORE = yes;
-          MIN_BASE_SLICE_NS = freeform "1000000";
-
           LTO_NONE = yes;
 
           HZ_300 = no;
@@ -78,6 +74,17 @@
           url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-sched-ext.patch";
           hash = "sha256-VHuXqMEHCaGXTOaN4df1Ey6+D1T0SFtFJrClI7FBBZA=";
         });
+        extraStructuredConfig = with lib.kernel; {
+          BPF = yes;
+          SCHED_CLASS_EXT = yes;
+          BPF_SYSCALL = yes;
+          BPF_JIT = yes;
+          DEBUG_INFO_BTF = yes;
+          BPF_JIT_ALWAYS_ON = yes;
+          BPF_JIT_DEFAULT_ON = yes;
+          PAHOLE_HAS_SPLIT_BTF = yes;
+          PAHOLE_HAS_BTF_TAG = yes;
+        };
       }
       {
         name = "bore-cachy-ext";
@@ -85,6 +92,10 @@
           url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/f036a67118ed302c3611e82e0234f8d4279079af/6.10/sched/0001-bore-cachy-ext.patch";
           hash = "sha256-kl/wLeR/Yuh5itoJfIkldtRtKYL5EXKwc7WI59T4DAA=";
         });
+        extraStructuredConfig = with lib.kernel; {
+          SCHED_BORE = yes;
+          MIN_BASE_SLICE_NS = freeform "1000000";
+        };
       }
     ];
 
