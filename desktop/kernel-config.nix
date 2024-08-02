@@ -14,6 +14,21 @@
 
         X86_INTEL_PSTATE = lib.mkForce no;
 
+        I2C = lib.mkForce no;
+        I2C_DESIGNWARE_PLATFORM = lib.mkForce no;
+        PMIC_OPREGION = lib.mkForce no;
+        INTEL_SOC_PMIC = lib.mkForce no;
+        BYTCRC_PMIC_OPREGION = lib.mkForce no;
+        CHTCRC_PMIC_OPREGION = lib.mkForce no;
+        XPOWER_PMIC_OPREGION = lib.mkForce no;
+        BXT_WC_PMIC_OPREGION = lib.mkForce no;
+        INTEL_SOC_PMIC_CHTWC = lib.mkForce no;
+        CHT_WC_PMIC_OPREGION = lib.mkForce no;
+        INTEL_SOC_PMIC_CHTDC_TI = lib.mkForce no;
+        CHT_DC_TI_PMIC_OPREGION = lib.mkForce no;
+        MFD_TPS68470 = lib.mkForce no;
+        TPS68470_PMIC_OPREGION = lib.mkForce no;
+
         NUMA = lib.mkForce no;
         NUMA_BALANCING = lib.mkForce no;
 
