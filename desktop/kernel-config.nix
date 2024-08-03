@@ -17,8 +17,22 @@
         DRM_AMD_SECURE_DISPLAY = lib.mkForce unset;
         HSA_AMD = lib.mkForce unset;
 
+        DRM_HYPERV = lib.mkForce unset;
+
+        DRM_NOUVEAU = no;
+        DRM_NOUVEAU_GSP_DEFAULT = lib.mkForce unset;
+        DRM_NOUVEAU_SVM = lib.mkForce unset;
+
+        DRM_XE = no;
+        HMM_MIRROR = lib.mkForce unset;
+
         GENERIC_CPU = no;
         MZEN3 = yes;
+
+        HYPERVISOR_GUEST = lib.mkForce no;
+        KVM_GUEST = lib.mkForce unset;
+        MOUSE_PS2_VMMOUSE = lib.mkForce unset;
+        PARAVIRT_TIME_ACCOUNTING = lib.mkForce unset;
 
         INFINIBAND = lib.mkForce no;
         INFINIBAND_IPOIB = lib.mkForce unset;
