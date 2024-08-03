@@ -20,6 +20,10 @@
         GENERIC_CPU = no;
         MZEN3 = yes;
 
+        INFINIBAND = lib.mkForce no;
+        INFINIBAND_IPOIB = lib.mkForce unset;
+        INFINIBAND_IPOIB_CM = lib.mkForce unset;
+
         NR_CPUS = lib.mkForce (freeform "16");
 
         NUMA = lib.mkForce no;
