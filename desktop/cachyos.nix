@@ -2,7 +2,7 @@
 
 let
   kernelVersion = "6.10";
-  cachyRev = "f036a67118ed302c3611e82e0234f8d4279079af";
+  cachyRev = "3ef9d17d64f2a195405e8fb840542667bd5b8026";
 in
 {
   boot.kernelPatches = [
@@ -11,7 +11,7 @@ in
       patch = (
         pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/${cachyRev}/${kernelVersion}/all/0001-cachyos-base-all.patch";
-          hash = "sha256-lZbElRTvhc6u6rEQAbpdRSPLUj/rPTqKX1ZFdMTMZlo=";
+          hash = "sha256-Rq/RiEbO1iv61FrNBTLWNJExPgECsubG/nTXpuc5H4g=";
         }
       );
 
@@ -60,7 +60,7 @@ in
       patch = (
         pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/${cachyRev}/${kernelVersion}/sched/0001-bore-cachy.patch";
-          hash = "sha256-qSRPWTMsRigTQpaEWP6shrlIfkaeRz/Lm/XgWYBQwbE=";
+          hash = "sha256-5ypFKznJg5tig4DMVC90lK0kkqaJSGIx01QDiz/V/po=";
         }
       );
 
