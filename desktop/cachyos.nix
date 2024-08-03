@@ -7,6 +7,7 @@ let
     rev = "3ef9d17d64f2a195405e8fb840542667bd5b8026";
     hash = "sha256-H1w8jjba8vVzfsZJrTz5AFiqF24LIbWw55BF3X7Ef4o=";
   };
+
   kernelVersion = "6.10";
 in
 {
