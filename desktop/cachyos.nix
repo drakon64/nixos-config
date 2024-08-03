@@ -1,7 +1,7 @@
-{ lib, fetchFromGitHub, ... }:
+{ lib, pkgs, ... }:
 
 let
-  cachyPatches = fetchFromGitHub {
+  cachyPatches = pkgs.fetchFromGitHub {
     owner = "CachyOS";
     repo = "kernel-patches";
     rev = "3ef9d17d64f2a195405e8fb840542667bd5b8026";
@@ -19,7 +19,7 @@ in
       name = "bbr3";
       patch = "${cachyPatches}/${kernelVersion}/0002-bbr3.patch";
 
-      extraStructuredConfig = {
+      extraStructuredConfig = with lib.kernel; {
         TCP_CONG_CUBIC = lib.mkOverride 60 module;
         TCP_CONG_BBR = yes;
         DEFAULT_BBR = yes;
