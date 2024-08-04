@@ -2,10 +2,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
-    #nixos-cosmic = {
-    #  url = "github:drakon64/nixos-cosmic";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-xivlauncher-rb = {
       url = "github:drakon64/nixos-xivlauncher-rb";
@@ -17,6 +17,7 @@
     {
       self,
       nixpkgs,
+      nixos-cosmic,
       nixos-xivlauncher-rb,
     }:
     {
@@ -39,7 +40,7 @@
                 ];
               };
             }
-            #nixos-cosmic.nixosModules.default
+            nixos-cosmic.nixosModules.default
             ./configuration.nix
           ];
         };
