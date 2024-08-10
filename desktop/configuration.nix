@@ -68,6 +68,7 @@
       ffmpeg
       firefox
       jetbrains.idea-ultimate
+      jetbrains.rust-rover
       killall
       mangohud
       nixfmt-rfc-style
