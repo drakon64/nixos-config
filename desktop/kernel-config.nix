@@ -26,6 +26,9 @@
         DRM_XE = no;
         HMM_MIRROR = lib.mkForce unset;
 
+        FIREWIRE = no;
+        FIREWIRE_NOSY = no;
+
         GENERIC_CPU = no;
         MZEN3 = yes;
 
