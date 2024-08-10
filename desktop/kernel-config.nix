@@ -7,6 +7,17 @@
       patch = null;
 
       extraStructuredConfig = with lib.kernel; {
+        CHROME_PLATFORMS = lib.mkForce no;
+        CHROMEOS_LAPTOP = lib.mkForce unset;
+        CHROMEOS_PSTORE = lib.mkForce unset;
+        CHROMEOS_TBMC = lib.mkForce unset;
+        CROS_EC = lib.mkForce unset;
+        CROS_EC_I2C = lib.mkForce unset;
+        CROS_EC_ISHTP = lib.mkForce unset;
+        CROS_EC_LPC = lib.mkForce unset;
+        CROS_EC_SPI = lib.mkForce unset;
+        CROS_KBD_LED_BACKLIGHT = lib.mkForce unset;
+
         DRM_AMDGPU = no;
         DRM_AMDGPU_CIK = lib.mkForce unset;
         DRM_AMDGPU_SI = lib.mkForce unset;
