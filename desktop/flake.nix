@@ -2,6 +2,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +22,7 @@
     {
       self,
       nixpkgs,
+      lix-module,
       nixos-cosmic,
       nixos-xivlauncher-rb,
     }:
@@ -40,6 +46,7 @@
                 ];
               };
             }
+            lix-module.nixosModules.default
             nixos-cosmic.nixosModules.default
             ./configuration.nix
           ];
