@@ -41,6 +41,11 @@
         INFINIBAND_IPOIB = lib.mkForce unset;
         INFINIBAND_IPOIB_CM = lib.mkForce unset;
 
+        INPUT_TOUCHSCREEN = no;
+
+        INPUT_JOYSTICK = no;
+        JOYSTICK_PSXPAD_SPI_FF = lib.mkForce unset;
+
         NR_CPUS = lib.mkForce (freeform "16");
 
         NUMA = lib.mkForce no;
