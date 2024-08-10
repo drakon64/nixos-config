@@ -45,6 +45,8 @@
 
         NUMA = lib.mkForce no;
         NUMA_BALANCING = lib.mkForce unset;
+
+        STAGING = lib.mkForce no;
       };
     }
   ];
