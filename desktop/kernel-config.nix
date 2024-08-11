@@ -7,6 +7,10 @@
       patch = null;
 
       extraStructuredConfig = with lib.kernel; {
+        CEPH_FS = no;
+        CEPH_FSCACHE = lib.mkForce unset;
+        CEPH_FS_POSIX_ACL = lib.mkForce unset;
+
         CHROME_PLATFORMS = lib.mkForce no;
         CHROMEOS_LAPTOP = lib.mkForce unset;
         CHROMEOS_PSTORE = lib.mkForce unset;
