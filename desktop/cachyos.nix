@@ -4,8 +4,8 @@ let
   cachyPatches = pkgs.fetchFromGitHub {
     owner = "CachyOS";
     repo = "kernel-patches";
-    rev = "3ef9d17d64f2a195405e8fb840542667bd5b8026";
-    hash = "sha256-H1w8jjba8vVzfsZJrTz5AFiqF24LIbWw55BF3X7Ef4o=";
+    rev = "14801d80ef9b9346de90f3f2479603118c48ec5c";
+    hash = "sha256-ss7BvOx8EMUA7W11l+7byqOyX3zhRxuzFo9iEJ04UVA=";
   };
 
   kernelVersion = "6.10";
