@@ -171,7 +171,7 @@
   services = {
     desktopManager.cosmic.enable = true;
 
-    #displayManager.cosmic-greeter.enable = true;
+    displayManager.cosmic-greeter.enable = true;
 
     fwupd.enable = true;
 
@@ -190,8 +190,6 @@
       enable = true;
 
       excludePackages = [ pkgs.xterm ];
-
-      displayManager.gdm.enable = true;
 
       desktopManager.gnome.enable = true;
 
