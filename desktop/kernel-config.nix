@@ -47,6 +47,8 @@
         GENERIC_CPU = no;
         MZEN3 = yes;
 
+        GNSS = no;
+
         HYPERVISOR_GUEST = lib.mkForce no;
         KVM_GUEST = lib.mkForce unset;
         MOUSE_PS2_VMMOUSE = lib.mkForce unset;
