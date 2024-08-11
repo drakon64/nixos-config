@@ -67,6 +67,7 @@
       element-desktop
       ffmpeg
       firefox
+      gimp
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       killall
