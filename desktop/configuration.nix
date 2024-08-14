@@ -39,24 +39,6 @@
   documentation.nixos.enable = false;
 
   environment = {
-    gnome.excludePackages = with pkgs; [
-      epiphany
-      evince
-      gnome-connections
-      gnome.geary
-      gnome.gnome-calendar
-      gnome.gnome-characters
-      gnome.gnome-clocks
-      gnome.gnome-contacts
-      gnome.gnome-font-viewer
-      gnome.gnome-maps
-      gnome.gnome-music
-      gnome.simple-scan
-      gnome-tour
-      gnome.yelp
-      snapshot
-    ];
-
     sessionVariables = {
       MOZ_ENABLE_WAYLAND = "0";
       NIXOS_OZONE_WL = "1";
@@ -69,6 +51,7 @@
       ffmpeg
       firefox
       gimp
+      gnome.gnome-system-monitor
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       killall
@@ -78,11 +61,6 @@
       spotify
       vim
       yt-dlp
-
-      gnomeExtensions.alphabetical-app-grid
-      gnomeExtensions.appindicator
-      gnomeExtensions.dash-to-dock
-      gnomeExtensions.gamemode-indicator-in-system-settings
 
       (wrapOBS {
         plugins = with obs-studio-plugins; [
@@ -208,8 +186,6 @@
       enable = true;
 
       excludePackages = [ pkgs.xterm ];
-
-      desktopManager.gnome.enable = true;
 
       videoDrivers = [ "nvidia" ];
 
