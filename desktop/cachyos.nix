@@ -4,18 +4,19 @@ let
   cachyPatches = pkgs.fetchFromGitHub {
     owner = "CachyOS";
     repo = "kernel-patches";
-    rev = "14801d80ef9b9346de90f3f2479603118c48ec5c";
-    hash = "sha256-ss7BvOx8EMUA7W11l+7byqOyX3zhRxuzFo9iEJ04UVA=";
+    rev = "3f4c5c8245929aa458f51afd5def9f3962d7ffef";
+    hash = "sha256-BsZhUcV7Rj3iLT0alBJIGVc1OBtlCgP0HreEHr9GaLw=";
   };
 
   kernelVersion = "6.10";
 in
 {
   boot.kernelPatches = [
-    {
-      name = "amd-pstate";
-      patch = "${cachyPatches}/${kernelVersion}/0001-amd-pstate.patch";
-    }
+    # TODO: Currently doesn't apply cleanly
+    #{
+    #  name = "amd-pstate";
+    #  patch = "${cachyPatches}/${kernelVersion}/0001-amd-pstate.patch";
+    #}
     {
       name = "bbr3";
       patch = "${cachyPatches}/${kernelVersion}/0002-bbr3.patch";
