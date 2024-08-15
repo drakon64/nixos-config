@@ -13,21 +13,10 @@ in
     stateVersion = "24.05";
     username = "adamc";
 
-    file.".xlcore/wineprefix/drive_c/windows/system32/nvapi64.dll" = {
-      source = "${dxvk-nvapi}/x64/nvapi64.dll";
-    };
-
-    file.".xlcore/wineprefix/drive_c/windows/syswow64/nvapi.dll" = {
-      source = "${dxvk-nvapi}/x32/nvapi.dll";
-    };
-
-    file.".xlcore/ffxiv/game/nvngx.dll" = {
-      source = "${osConfig.hardware.nvidia.package}/lib/nvidia/wine/nvngx.dll";
-    };
-
-    file.".xlcore/ffxiv/game/_nvngx.dll" = {
-      source = "${osConfig.hardware.nvidia.package}/lib/nvidia/wine/_nvngx.dll";
-    };
+    file.".xlcore/wineprefix/drive_c/windows/system32/nvapi64.dll".source = "${dxvk-nvapi}/x64/nvapi64.dll";
+    file.".xlcore/wineprefix/drive_c/windows/syswow64/nvapi.dll".source = "${dxvk-nvapi}/x32/nvapi.dll";
+    file.".xlcore/ffxiv/game/nvngx.dll".source = "${osConfig.hardware.nvidia.package}/lib/nvidia/wine/nvngx.dll";
+    file.".xlcore/ffxiv/game/_nvngx.dll".source = "${osConfig.hardware.nvidia.package}/lib/nvidia/wine/_nvngx.dll";
   };
 
   programs.home-manager.enable = true;
