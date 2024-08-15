@@ -36,6 +36,15 @@
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           modules = [
+            ./configuration.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.adamc = import ./home.nix;
+            }
+
             {
               environment.systemPackages = [
                 (nixos-xivlauncher-rb.packages.x86_64-linux.xivlauncher-rb.override { useGameMode = true; })
@@ -53,16 +62,8 @@
               };
             }
 
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.adamc = import ./home.nix;
-            }
-
             lix-module.nixosModules.default
             nixos-cosmic.nixosModules.default
-            ./configuration.nix
           ];
         };
       };
