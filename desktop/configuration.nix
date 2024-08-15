@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  fetchpatch,
   ...
 }:
 
@@ -130,7 +129,7 @@
       (final: prev: {
         cosmic-term = prev.cosmic-term.overrideAttrs (previousAttrs: {
           patches = previousAttrs.patches ++ [
-            (fetchpatch {
+            (pkgs.fetchpatch {
               name = "fix ctrl or alt + arrows";
               url = "https://github.com/pop-os/cosmic-term/pull/263.patch";
               hash = "sha256-/2lsJl5hpmAxfk/9S+psVk2vxIFTohc8Vy3mHNw/zaI=";
