@@ -122,23 +122,7 @@
     "flakes"
   ];
 
-  nixpkgs = {
-    config.allowUnfree = true;
-
-    overlays = [
-      (final: prev: {
-        cosmic-term = prev.cosmic-term.overrideAttrs (previousAttrs: {
-          patches = previousAttrs.patches ++ [
-            (pkgs.fetchpatch {
-              name = "fix ctrl or alt + arrows";
-              url = "https://github.com/pop-os/cosmic-term/pull/263.patch";
-              hash = "sha256-/2lsJl5hpmAxfk/9S+psVk2vxIFTohc8Vy3mHNw/zaI=";
-            })
-          ];
-        });
-      })
-    ];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   programs = {
     _1password-gui.enable = true;
