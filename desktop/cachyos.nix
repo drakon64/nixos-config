@@ -12,11 +12,10 @@ let
 in
 {
   boot.kernelPatches = [
-    # TODO: Currently doesn't apply cleanly
-    #{
-    #  name = "amd-pstate";
-    #  patch = "${cachyPatches}/${kernelVersion}/0001-amd-pstate.patch";
-    #}
+    {
+      name = "amd-pstate";
+      patch = "${cachyPatches}/${kernelVersion}/0001-amd-pstate.patch";
+    }
     {
       name = "bbr3";
       patch = "${cachyPatches}/${kernelVersion}/0002-bbr3.patch";
