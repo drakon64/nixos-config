@@ -7,7 +7,7 @@ let
     stripRoot = false;
   };
 
-  dlsstweaks = pkgs.fetchzip {
+  dlssTweaks = pkgs.fetchzip {
     url = "https://github.com/emoose/DLSSTweaks/files/15013420/DLSSTweaks-0.200.9.0-beta1.zip";
     sha256 = "19w5kjgy5zayp02mz5rv5g91r31ix5rm1m95qwlxfrp9gbag9dh2";
     stripRoot = false;
@@ -26,7 +26,7 @@ in
     file.".xlcore/ffxiv/game/_nvngx.dll".source = "${osConfig.hardware.nvidia.package}/lib/nvidia/wine/_nvngx.dll";
 
     # DLSSTweaks
-    file.".xlcore/ffxiv/game/winmm.dll".source = "${dlsstweaks}/nvngx.dll";
+    file.".xlcore/ffxiv/game/winmm.dll".source = "${dlssTweaks}/nvngx.dll";
   };
 
   programs.home-manager.enable = true;
