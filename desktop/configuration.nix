@@ -121,10 +121,15 @@
   };
 
   nix.settings = {
+    auto-optimise-store = true;
+    cores = 15;
+
     experimental-features = [
       "nix-command"
       "flakes"
     ];
+
+    max-jobs = 15;
 
     substituters = [
       "https://cosmic.cachix.org/"
