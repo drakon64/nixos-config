@@ -30,17 +30,19 @@ in
     stateVersion = "24.05";
     username = "adamc";
 
-    # DXVK-NVAPI
-    file.".xlcore/wineprefix/drive_c/windows/system32/nvapi64.dll".source = "${dxvk-nvapi}/x64/nvapi64.dll";
-    file.".xlcore/ffxiv/game/nvngx.dll".source = "${osConfig.hardware.nvidia.package}/lib/nvidia/wine/nvngx.dll";
-    file.".xlcore/ffxiv/game/_nvngx.dll".source = "${osConfig.hardware.nvidia.package}/lib/nvidia/wine/_nvngx.dll";
+    file = {
+      # DXVK-NVAPI
+      ".xlcore/wineprefix/drive_c/windows/system32/nvapi64.dll".source = "${dxvk-nvapi}/x64/nvapi64.dll";
+      ".xlcore/ffxiv/game/nvngx.dll".source = "${osConfig.hardware.nvidia.package}/lib/nvidia/wine/nvngx.dll";
+      ".xlcore/ffxiv/game/_nvngx.dll".source = "${osConfig.hardware.nvidia.package}/lib/nvidia/wine/_nvngx.dll";
 
-    # DLSSTweaks
-    file.".xlcore/ffxiv/game/winmm.dll".source = "${dlssTweaks}/nvngx.dll";
-    file.".xlcore/ffxiv/game/dlsstweaks.ini".source = dlssTweaksIni;
+      # DLSSTweaks
+      ".xlcore/ffxiv/game/winmm.dll".source = "${dlssTweaks}/nvngx.dll";
+      ".xlcore/ffxiv/game/dlsstweaks.ini".source = dlssTweaksIni;
 
-    # DLSS
-    file.".xlcore/ffxiv/game/nvngx_dlss_new.dll".source = "${dlss}/lib/Windows_x86_64/rel/nvngx_dlss.dll";
+      # DLSS
+      ".xlcore/ffxiv/game/nvngx_dlss_new.dll".source = "${dlss}/lib/Windows_x86_64/rel/nvngx_dlss.dll";
+    };
   };
 
   programs.home-manager.enable = true;
