@@ -62,7 +62,10 @@
       vim
       yt-dlp
 
-      (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override { useGameMode = true; })
+      (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override {
+        useGameMode = true;
+        #nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
+      })
 
       (wrapOBS {
         plugins = with obs-studio-plugins; [
