@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -61,6 +62,8 @@
       vim
       yt-dlp
 
+      (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override { useGameMode = true; })
+
       (wrapOBS {
         plugins = with obs-studio-plugins; [
           obs-pipewire-audio-capture
@@ -117,10 +120,22 @@
     networkmanager.enable = true;
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
+    substituters = [
+      "https://cosmic.cachix.org/"
+      "https://drakon64-nixos-cosmic.cachix.org/"
+    ];
+
+    trusted-public-keys = [
+      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+      "drakon64-nixos-cosmic.cachix.org-1:bW2gsh5pbdMxcI3sklvtROM9A8CXtPXgVwmIcO3E3io="
+    ];
+  };
 
   nixpkgs.config.allowUnfree = true;
 

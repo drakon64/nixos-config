@@ -45,26 +45,13 @@
               home-manager.users.adamc = import ./home.nix;
             }
 
-            {
-              environment.systemPackages = [
-                (nixos-xivlauncher-rb.packages.x86_64-linux.xivlauncher-rb.override { useGameMode = true; })
-              ];
-
-              nix.settings = {
-                substituters = [
-                  "https://cosmic.cachix.org/"
-                  "https://drakon64-nixos-cosmic.cachix.org/"
-                ];
-                trusted-public-keys = [
-                  "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-                  "drakon64-nixos-cosmic.cachix.org-1:bW2gsh5pbdMxcI3sklvtROM9A8CXtPXgVwmIcO3E3io="
-                ];
-              };
-            }
-
             lix-module.nixosModules.default
             nixos-cosmic.nixosModules.default
           ];
+
+          specialArgs = {
+            inherit inputs;
+          };
         };
       };
     };
