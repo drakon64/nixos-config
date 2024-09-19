@@ -24,7 +24,6 @@
 
     loader = {
       efi.canTouchEfiVariables = true;
-
       systemd-boot.enable = true;
     };
 
@@ -85,7 +84,6 @@
   hardware = {
     nvidia = {
       modesetting.enable = true;
-
       open = false;
 
       package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
@@ -119,7 +117,6 @@
 
   networking = {
     hostName = "desktop";
-
     networkmanager.enable = true;
   };
 
@@ -152,7 +149,6 @@
 
     gamemode = {
       enable = true;
-
       settings.general.renice = 20;
     };
 
@@ -172,27 +168,17 @@
 
   services = {
     desktopManager.cosmic.enable = true;
-
     displayManager.cosmic-greeter.enable = true;
-
     fwupd.enable = true;
 
     pipewire = {
       enable = true;
-
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-
       pulse.enable = true;
     };
 
     xserver = {
       enable = true;
-
       excludePackages = [ pkgs.xterm ];
-
       videoDrivers = [ "nvidia" ];
 
       xkb = {
@@ -212,11 +198,13 @@
 
   users.users.adamc = {
     description = "Adam Chance";
+
     extraGroups = [
       "gamemode"
       "networkmanager"
       "wheel"
     ];
+
     isNormalUser = true;
   };
 }
