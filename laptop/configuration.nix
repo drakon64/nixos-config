@@ -43,9 +43,16 @@
     wget
   ];
 
-  hardware.opengl = {
-    extraPackages = [ pkgs.amdvlk ];
-    extraPackages32 = [ pkgs.amdvlk ];
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+
+    opengl = {
+      extraPackages = [ pkgs.amdvlk ];
+      extraPackages32 = [ pkgs.amdvlk ];
+    };
   };
 
   nix.settings = {
@@ -80,6 +87,11 @@
 
   services = {
     fwupd.enable = true;
+
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
 
     xserver = {
       enable = true;
