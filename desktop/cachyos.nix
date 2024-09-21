@@ -4,11 +4,11 @@ let
   cachyPatches = pkgs.fetchFromGitHub {
     owner = "CachyOS";
     repo = "kernel-patches";
-    rev = "9a77a1736bde33c837d312ce66922d1eb16ac5ea";
-    hash = "sha256-mx7sRdRxYLKqhzemM4zLhmeG5NyZ0GJ70ijszwhTd9M=";
+    rev = "a6caee7a65720cd03c4060023b6a523b91ed45d6";
+    hash = "sha256-b7tOjpSNX8A48XB7fI1HaLiknjqi9Ev3W5By/7UZ2zk=";
   };
 
-  kernelVersion = "6.10";
+  kernelVersion = "6.11";
 in
 {
   boot.kernelPatches = [
@@ -71,20 +71,16 @@ in
       };
     }
     {
-      name = "crypto";
-      patch = "${cachyPatches}/${kernelVersion}/0005-crypto.patch";
-    }
-    {
       name = "fixes";
-      patch = "${cachyPatches}/${kernelVersion}/0006-fixes.patch";
+      patch = "${cachyPatches}/${kernelVersion}/0005-fixes.patch";
     }
     {
       name = "ksm";
-      patch = "${cachyPatches}/${kernelVersion}/0008-ksm.patch";
+      patch = "${cachyPatches}/${kernelVersion}/0007-ksm.patch";
     }
     #{
     #  name = "ntsync";
-    #  patch = "${cachyPatches}/${kernelVersion}/0009-ntsync.patch";
+    #  patch = "${cachyPatches}/${kernelVersion}/0008-ntsync.patch";
 
     #  extraStructuredConfig = with lib.kernel; {
     #    NTSYNC = yes;
@@ -92,11 +88,11 @@ in
     #}
     {
       name = "perf-per-core";
-      patch = "${cachyPatches}/${kernelVersion}/0010-perf-per-core.patch";
+      patch = "${cachyPatches}/${kernelVersion}/0009-perf-per-core.patch";
     }
     {
       name = "zstd";
-      patch = "${cachyPatches}/${kernelVersion}/0012-zstd.patch";
+      patch = "${cachyPatches}/${kernelVersion}/0011-zstd.patch";
     }
     {
       name = "bore-cachy";

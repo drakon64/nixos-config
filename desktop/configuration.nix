@@ -14,7 +14,7 @@
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_10;
+    kernelPackages = pkgs.linuxPackages_6_11;
 
     kernelParams = [
       "amd_pstate=active"

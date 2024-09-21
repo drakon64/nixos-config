@@ -29,6 +29,7 @@
         DRM_AMD_ACP = lib.mkForce unset;
         DRM_AMD_DC_FP = lib.mkForce unset;
         DRM_AMD_DC_SI = lib.mkForce unset;
+        DRM_AMD_ISP = lib.mkForce unset;
         DRM_AMD_SECURE_DISPLAY = lib.mkForce unset;
         HSA_AMD = lib.mkForce unset;
 
