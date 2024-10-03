@@ -168,6 +168,7 @@
 
   services = {
     desktopManager.cosmic.enable = true;
+    xserver.desktopManager.gnome.enable = true;
     displayManager.cosmic-greeter.enable = true;
     fwupd.enable = true;
 
