@@ -61,6 +61,10 @@
       vim
       yt-dlp
 
+      gnomeExtensions.appindicator
+      gnomeExtensions.dash-to-dock
+      gnomeExtensions.pop-shell
+
       (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override {
         useGameMode = true;
         nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
