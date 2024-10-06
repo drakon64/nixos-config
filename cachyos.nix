@@ -4,8 +4,8 @@ let
   cachyPatches = pkgs.fetchFromGitHub {
     owner = "CachyOS";
     repo = "kernel-patches";
-    rev = "a6caee7a65720cd03c4060023b6a523b91ed45d6";
-    hash = "sha256-b7tOjpSNX8A48XB7fI1HaLiknjqi9Ev3W5By/7UZ2zk=";
+    rev = "e87928a12aa8d03ad5259264818a4ed4d20dd779";
+    hash = "sha256-RXj/f1H7qFwQ6XOQpa+n7hzYLyG9DbzMKnriCeBdXqk=";
   };
 
   kernelVersion = "6.11";
@@ -13,8 +13,8 @@ in
 {
   boot.kernelPatches = [
     {
-      name = "amd-pstate";
-      patch = "${cachyPatches}/${kernelVersion}/0001-amd-pstate.patch";
+      name = "address-masking";
+      patch = "${cachyPatches}/${kernelVersion}/0001-address-masking.patch";
     }
     {
       name = "bbr3";
@@ -28,12 +28,8 @@ in
       };
     }
     {
-      name = "block";
-      patch = "${cachyPatches}/${kernelVersion}/0003-block.patch";
-    }
-    {
       name = "cachy";
-      patch = "${cachyPatches}/${kernelVersion}/0004-cachy.patch";
+      patch = "${cachyPatches}/${kernelVersion}/0003-cachy.patch";
 
       extraStructuredConfig = with lib.kernel; {
         CACHY = yes;
@@ -72,15 +68,15 @@ in
     }
     {
       name = "fixes";
-      patch = "${cachyPatches}/${kernelVersion}/0005-fixes.patch";
+      patch = "${cachyPatches}/${kernelVersion}/0004-fixes.patch";
     }
     {
       name = "ksm";
-      patch = "${cachyPatches}/${kernelVersion}/0007-ksm.patch";
+      patch = "${cachyPatches}/${kernelVersion}/0006-ksm.patch";
     }
     #{
     #  name = "ntsync";
-    #  patch = "${cachyPatches}/${kernelVersion}/0008-ntsync.patch";
+    #  patch = "${cachyPatches}/${kernelVersion}/0007-ntsync.patch";
 
     #  extraStructuredConfig = with lib.kernel; {
     #    NTSYNC = yes;
