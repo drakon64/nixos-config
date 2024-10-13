@@ -7,20 +7,12 @@
 }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-    ./cachyos.nix
-    ./kernel-config.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_6_11;
 
-    kernelParams = [
-      "amd_pstate=active"
-      "initcall_blacklist=acpi_cpufreq_init"
-      "nvidia_drm.fbdev=1"
-    ];
+    kernelParams = [ "nvidia_drm.fbdev=1" ];
 
     loader = {
       efi.canTouchEfiVariables = true;
