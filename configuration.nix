@@ -71,12 +71,6 @@
     ];
   };
 
-  fileSystems."/home/adamc/Left 4 Dead 2" = {
-    device = "/home/adamc/l4d2.img";
-    fsType = "ext4";
-    options = [ "loop" ];
-  };
-
   hardware = {
     nvidia = {
       modesetting.enable = true;
