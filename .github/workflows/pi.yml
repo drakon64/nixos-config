@@ -12,20 +12,19 @@ on:
 jobs:
   build:
     name: Raspberry Pi SD image
-    runs-on: [ linux, ARM64, drakon64/github-actions-runner-aws, EC2-c8g.medium ]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: cachix/install-nix-action@v29
 
-#      - uses: cachix/cachix-action@v15
-#        with:
-#          name: drakon64-nixos-cosmic-iso
-#          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-#          extraPullNames: cosmic
+      - uses: cachix/cachix-action@v15
+        with:
+          name: drakon64-nixos-rpi
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
-      - run: nix build .#sdImage.closure
+      - run: nix build .#images.pi.config.system.build.sdImage
         working-directory: pi
 
 #      - run: |

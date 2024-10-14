@@ -4,7 +4,6 @@
   lib,
   ...
 }:
-
 {
   boot.supportedFilesystems = {
     ext4 = true;
@@ -20,11 +19,10 @@
   };
 
   hardware.enableRedistributableFirmware = true;
-  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
+  nixpkgs.crossSystem.config = "aarch64-unknown-linux-gnu";
   system.stateVersion = "24.05";
 
-  users.users.adamc = {
-    description = "Adam Chance";
+  users.users.nixos = {
     extraGroups = [ "wheel" ];
     initialPassword = "nixos";
     isNormalUser = true;
