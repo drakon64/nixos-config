@@ -6,6 +6,11 @@
 }:
 
 {
+  boot.supportedFilesystems = {
+    ext4 = true;
+    zfs = lib.mkForce false;
+  };
+
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
