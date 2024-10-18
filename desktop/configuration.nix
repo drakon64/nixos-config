@@ -46,6 +46,7 @@
       gnome.gnome-system-monitor
       jetbrains.idea-ultimate
       killall
+      libimobiledevice
       mangohud
       nixfmt-rfc-style
       r2modman
@@ -165,6 +166,11 @@
     pipewire = {
       enable = true;
       pulse.enable = true;
+    };
+
+    usbmuxd = {
+      enable = true;
+      package = pkgs.usbmuxd2;
     };
 
     xserver = {
