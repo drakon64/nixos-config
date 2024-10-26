@@ -122,16 +122,8 @@
     ];
 
     max-jobs = 15;
-
-    substituters = [
-      "https://cosmic.cachix.org/"
-      "https://drakon64-nixos-cosmic.cachix.org/"
-    ];
-
-    trusted-public-keys = [
-      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-      "drakon64-nixos-cosmic.cachix.org-1:bW2gsh5pbdMxcI3sklvtROM9A8CXtPXgVwmIcO3E3io="
-    ];
+    substituters = [ "https://cosmic.cachix.org/" ];
+    trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
   };
 
   nixpkgs.config.allowUnfree = true;
