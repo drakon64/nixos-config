@@ -37,6 +37,7 @@
     };
 
     systemPackages = with pkgs; [
+      cosmic-player
       discord
       element-desktop
       ffmpeg
