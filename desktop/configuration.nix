@@ -41,7 +41,6 @@
       discord
       element-desktop
       ffmpeg
-      firefox
       gimp
       gnome.file-roller
       gnome.gnome-system-monitor
@@ -130,6 +129,14 @@
 
   programs = {
     _1password-gui.enable = true;
+
+    firefox = {
+      enable = true;
+
+      preferences = {
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
+    };
 
     gamemode = {
       enable = true;
