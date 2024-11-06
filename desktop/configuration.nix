@@ -45,6 +45,7 @@
       gnome.file-roller
       gnome.gnome-system-monitor
       jetbrains.idea-ultimate
+      jetbrains.rider
       killall
       libimobiledevice
       mangohud
