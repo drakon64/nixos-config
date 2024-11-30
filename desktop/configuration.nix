@@ -44,7 +44,7 @@
       gimp
       gnome.file-roller
       gnome.gnome-system-monitor
-      jetbrains.idea-ultimate
+      jetbrains.idea-community-src
       jetbrains.rider
       killall
       mangohud
