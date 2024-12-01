@@ -10,12 +10,15 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
     };
 
     supportedFilesystems = {
+      bcachefs = true;
       zfs = lib.mkForce false;
     };
   };
@@ -31,6 +34,7 @@
     };
 
     systemPackages = with pkgs; [
+      bcachefs-tools
       discord
       nixfmt-rfc-style
       vim
