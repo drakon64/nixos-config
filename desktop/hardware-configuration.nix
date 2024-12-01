@@ -22,13 +22,7 @@
         "sd_mod"
       ];
 
-      kernelModules = [ "dm-snapshot" ];
-
-      luks.devices."root" = {
-        device = "/dev/disk/by-uuid/bd4eb8c7-22a8-4338-b8d4-ea4b6f2270e7";
-        preLVM = true;
-        allowDiscards = true;
-      };
+      kernelModules = [ ];
     };
 
     kernelModules = [ "kvm-amd" ];
@@ -36,13 +30,13 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/5ff28333-a4ab-40be-84dc-9a6f56a17ce3";
-      fsType = "xfs";
+      device = "UUID=6b12b6cd-4dc4-48b8-a2b0-89ff5be6fd42";
+      fsType = "bcachefs";
       options = [ "discard" ];
     };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/B053-4CD8";
+      device = "/dev/disk/by-uuid/3846-1C3C";
       fsType = "vfat";
 
       options = [
