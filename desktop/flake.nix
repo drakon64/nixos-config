@@ -7,18 +7,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
+    nixos-xivlauncher-rb = {
+      url = "github:drakon64/nixos-xivlauncher-rb";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixos-xivlauncher-rb = {
-      url = "github:drakon64/nixos-xivlauncher-rb";
+      url = "github:drakon64/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -28,25 +23,22 @@
       self,
       nixpkgs,
       home-manager,
-      lix-module,
-      nixos-cosmic,
       nixos-xivlauncher-rb,
+      nixos-cosmic,
     }:
     {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           modules = [
+            nixos-cosmic.nixosModules.default
             ./configuration.nix
-
             home-manager.nixosModules.home-manager
+
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.adamc = import ./home.nix;
             }
-
-            lix-module.nixosModules.default
-            nixos-cosmic.nixosModules.default
           ];
 
           specialArgs = {
