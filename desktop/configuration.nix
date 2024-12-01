@@ -37,17 +37,18 @@
       bcachefs-tools
       discord
       nixfmt-rfc-style
+      spotify
       vim
 
       (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override {
         nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
       })
 
-      jetbrains.idea-community
-
       gnomeExtensions.alphabetical-app-grid
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-dock
+
+      jetbrains.idea-community
 
       (pkgs.callPackage ./krisp-patcher.nix { })
 
