@@ -10,7 +10,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_11;
 
     loader = {
       efi.canTouchEfiVariables = true;
