@@ -39,7 +39,9 @@
       nixfmt-rfc-style
       vim
 
-      inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default
+      (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override {
+        nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
+      })
 
       jetbrains.idea-community
 
