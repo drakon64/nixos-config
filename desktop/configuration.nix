@@ -119,6 +119,12 @@
       };
     };
 
+    vim = {
+      enable = true;
+
+      defaultEditor = true;
+    };
+
     virt-manager.enable = true;
   };
 
