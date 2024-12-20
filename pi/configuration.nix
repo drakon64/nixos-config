@@ -1,28 +1,34 @@
+{ lib, modulesPath, ... }:
 {
-  config,
-  pkgs,
-  lib,
-  ...
-}:
-{
-  boot.supportedFilesystems = {
-    ext4 = true;
-    zfs = lib.mkForce false;
+  imports = [ "${modulesPath}/installer/sd-card/sd-image-aarch64.nix" ];
+
+  boot = {
+    binfmt.emulatedSystems = [ "x86_64-linux" ];
+    supportedFilesystems.zfs = lib.mkForce false;
   };
+
+  console.keyMap = "uk";
+  documentation.nixos.enable = false;
 
   fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "ext4";
-      options = [ "noatime" ];
-    };
+    "/boot/firmware".options = [ "discard" ];
+    "/".options = [ "discard" ];
   };
 
-  hardware.enableRedistributableFirmware = true;
-  nixpkgs.crossSystem.config = "aarch64-unknown-linux-gnu";
-  system.stateVersion = "24.05";
+  i18n.defaultLocale = "en_GB.UTF-8";
+  networking.hostName = "pi";
+  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
-  users.users.nixos = {
+  programs.vim = {
+    enable = true;
+
+    defaultEditor = true;
+  };
+
+  system.stateVersion = "24.11";
+
+  users.users.adamc = {
+    description = "Adam Chance";
     extraGroups = [ "wheel" ];
     initialPassword = "nixos";
     isNormalUser = true;
