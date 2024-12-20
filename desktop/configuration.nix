@@ -36,6 +36,7 @@
     systemPackages = with pkgs; [
       bcachefs-tools
       discord
+      element-desktop
       nixfmt-rfc-style
       spotify
       vim
