@@ -44,10 +44,6 @@
         nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
       })
 
-      gnomeExtensions.alphabetical-app-grid
-      gnomeExtensions.appindicator
-      gnomeExtensions.dash-to-dock
-
       jetbrains.idea-community
 
       (pkgs.callPackage ./krisp-patcher.nix { })
@@ -134,7 +130,6 @@
     fwupd.enable = true;
 
     xserver = {
-      desktopManager.gnome.enable = true;
       videoDrivers = [ "nvidia" ];
       xkb.layout = "gb";
     };
