@@ -10,6 +10,8 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
+
     kernelPackages = pkgs.linuxPackages_6_11;
 
     loader = {
