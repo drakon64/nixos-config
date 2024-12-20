@@ -113,8 +113,12 @@
       };
     };
 
+    gamescope.enable = true;
+
     steam = {
       enable = true;
+
+      gamescopeSession.enable = true;
 
       package = pkgs.steam.override {
         extraEnv = {
