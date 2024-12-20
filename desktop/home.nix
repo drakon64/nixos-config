@@ -32,10 +32,14 @@ in
       ".xlcore/ffxiv/game/nvngx_dlss_new.dll".source = "${dlss}/lib/Windows_x86_64/rel/nvngx_dlss.dll";
 
       # Wallpapers
-      "${wallpapers}/A_stormy_stellar_nursery_esa_379309.jpg".source = "${cosmic-wallpapers}/A_stormy_stellar_nursery_esa_379309.jpg";
-      "${wallpapers}/orion_nebula_nasa_heic0601a.jpg".source = "${cosmic-wallpapers}/orion_nebula_nasa_heic0601a.jpg";
-      "${wallpapers}/otherworldly_earth_nasa_ISS064-E-29444.jpg".source = "${cosmic-wallpapers}/otherworldly_earth_nasa_ISS064-E-29444.jpg";
-      "${wallpapers}/tarantula_nebula_nasa_PIA23646.jpg".source = "${cosmic-wallpapers}/tarantula_nebula_nasa_PIA23646.jpg";
+      "${wallpapers}/A_stormy_stellar_nursery_esa_379309.jpg".source =
+        "${cosmic-wallpapers}/A_stormy_stellar_nursery_esa_379309.jpg";
+      "${wallpapers}/orion_nebula_nasa_heic0601a.jpg".source =
+        "${cosmic-wallpapers}/orion_nebula_nasa_heic0601a.jpg";
+      "${wallpapers}/otherworldly_earth_nasa_ISS064-E-29444.jpg".source =
+        "${cosmic-wallpapers}/otherworldly_earth_nasa_ISS064-E-29444.jpg";
+      "${wallpapers}/tarantula_nebula_nasa_PIA23646.jpg".source =
+        "${cosmic-wallpapers}/tarantula_nebula_nasa_PIA23646.jpg";
     };
 
     homeDirectory = "/home/adamc";
