@@ -39,6 +39,7 @@
       nixfmt-rfc-style
       spotify
       vim
+      virt-viewer
 
       (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override {
         nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
@@ -117,6 +118,8 @@
         };
       };
     };
+
+    virt-manager.enable = true;
   };
 
   services = {
@@ -143,10 +146,13 @@
     description = "Adam Chance";
 
     extraGroups = [
+      "libvirtd"
       "networkmanager"
       "wheel"
     ];
 
     isNormalUser = true;
   };
+
+  virtualisation.libvirtd.enable = true;
 }
