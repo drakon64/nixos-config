@@ -41,6 +41,9 @@
       vim
       virt-viewer
 
+      cosmic-ext-observatory
+      cosmic-player
+
       (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override {
         nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
       })
