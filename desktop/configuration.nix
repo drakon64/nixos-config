@@ -44,6 +44,9 @@
       cosmic-ext-observatory
       cosmic-player
 
+      dotnetCorePackages.dotnet_9.sdk
+      jetbrains.rider
+
       (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override {
         nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
       })
