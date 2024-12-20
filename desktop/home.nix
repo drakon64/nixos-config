@@ -52,14 +52,11 @@ in
   dconf = {
     enable = true;
 
-    settings."org/gnome/shell" = {
-      disable-user-extensions = false;
-
-      enabled-extensions = with pkgs.gnomeExtensions; [
-        alphabetical-app-grid.extensionUuid
-        appindicator.extensionUuid
-        dash-to-dock.extensionUuid
-      ];
+    settings = {
+      "org/virt-manager/virt-manager/connections" = {
+        autoconnect = [ "qemu:///system" ];
+        uris = [ "qemu:///system" ];
+      };
     };
   };
 
