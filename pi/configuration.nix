@@ -1,4 +1,11 @@
-{ lib, modulesPath, ... }:
+{
+  lib,
+  modulesPath,
+  pkgs,
+  ipxe,
+  netboot,
+  ...
+}:
 {
   imports = [ "${modulesPath}/installer/sd-card/sd-image-aarch64.nix" ];
 
@@ -17,12 +24,18 @@
 
   i18n.defaultLocale = "en_GB.UTF-8";
   networking.hostName = "pi";
-  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
+  nixpkgs.hostPlatform = "aarch64-linux";
 
   programs.vim = {
     enable = true;
 
     defaultEditor = true;
+  };
+
+  services.atftpd = {
+    enable = true;
+
+    root = ipxe;
   };
 
   system.stateVersion = "24.11";
