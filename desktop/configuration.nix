@@ -39,6 +39,7 @@
       bcachefs-tools
       discord
       element-desktop
+      file-roller
       nixfmt-rfc-style
       spotify
       vim
