@@ -34,7 +34,7 @@
           nixpkgs.lib.nixosSystem {
             modules = [
               ./configuration.nix
-              nixos-hardware.nixosModules.raspberry-pi-3
+              nixos-hardware.nixosModules.raspberry-pi-4
             ];
 
             specialArgs = {
