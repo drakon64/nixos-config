@@ -20,6 +20,7 @@
             #!ipxe
 
             dhcp
+            chain http://192.168.2.2/netboot.ipxe
           '';
         };
     in

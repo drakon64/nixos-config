@@ -32,10 +32,39 @@
     defaultEditor = true;
   };
 
-  services.atftpd = {
-    enable = true;
+  services = {
+    atftpd = {
+      enable = true;
 
-    root = ipxe;
+      root = ipxe;
+    };
+
+    caddy = {
+      enable = true;
+
+      configFile =
+        let
+          ipxeChain =
+            let
+              netbootBuild = netboot.config.system.build;
+            in
+            pkgs.symlinkJoin {
+              name = "netboot";
+
+              paths = [
+                netbootBuild.netbootRamdisk
+                netbootBuild.kernel
+                netbootBuild.netbootIpxeScript
+              ];
+            };
+        in
+        pkgs.writeText "Caddyfile" ''
+          http://192.168.2.2
+
+          root * ${ipxeChain}
+          file_server
+        '';
+    };
   };
 
   system.stateVersion = "24.11";
