@@ -5,7 +5,7 @@
   ...
 }:
 {
-  imports = [ "${modulesPath}/installer/netboot/netboot.nix" ];
+  imports = [ "${modulesPath}/installer/netboot/netboot-minimal.nix" ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
