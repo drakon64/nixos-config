@@ -2,6 +2,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    lix-module = {
+          url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
+          inputs.nixpkgs.follows = "nixpkgs";
+        };
   };
 
   outputs =
@@ -9,11 +14,15 @@
       self,
       nixpkgs,
       nixos-hardware,
+      lix-module,
     }:
     {
       nixosConfigurations = rec {
         netboot = nixpkgs.lib.nixosSystem {
-          modules = [ ./netboot.nix ];
+          modules = [
+          lix-module.nixosModules.default
+          ./netboot.nix
+          ];
         };
 
         pi =
@@ -33,6 +42,7 @@
           in
           nixpkgs.lib.nixosSystem {
             modules = [
+              lix-module.nixosModules.default
               ./configuration.nix
               nixos-hardware.nixosModules.raspberry-pi-4
             ];
