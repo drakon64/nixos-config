@@ -37,6 +37,7 @@
 
     systemPackages = with pkgs; [
       bcachefs-tools
+      bottles
       discord
       element-desktop
       file-roller
