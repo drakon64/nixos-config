@@ -12,7 +12,7 @@
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-    kernelPackages = pkgs.linuxPackages_6_11;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
       efi.canTouchEfiVariables = true;
