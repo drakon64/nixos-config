@@ -13,8 +13,8 @@ let
   };
 
   dlss = pkgs.fetchzip {
-    url = "https://developer.nvidia.com/downloads/assets/gameworks/downloads/secure/dlss/dlss_3_7_10.zip";
-    sha256 = "037gza9pwb55xqgq2wnns5kfrki03whiyg7bqxlcnsqbf7grrjmr";
+    url = "https://developer.nvidia.com/downloads/assets/gameworks/downloads/secure/dlss/dlss_3.7.20.zip";
+    sha256 = "sha256-eTqZRDcm0hLzAaRPu82UkJmCLbev0ZGa8DP3TzCrx2s=";
     stripRoot = true;
   };
 
