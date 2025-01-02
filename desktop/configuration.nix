@@ -157,6 +157,7 @@
     fwupd.enable = true;
 
     xserver = {
+      desktopManager.gnome.enable = true;
       videoDrivers = [ "nvidia" ];
       xkb.layout = "gb";
     };
