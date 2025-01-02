@@ -155,6 +155,7 @@
     };
 
     fwupd.enable = true;
+    gnome.core-utilities.enable = false;
 
     xserver = {
       desktopManager.gnome.enable = true;
