@@ -73,6 +73,11 @@ in
     enable = true;
 
     settings = {
+      "org/gnome/shell".enabled-extensions = with pkgs.gnomeExtensions; [
+        appindicator.extensionUuid
+        dash-to-dock.extensionUuid
+      ];
+
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = [ "qemu:///system" ];
         uris = [ "qemu:///system" ];
