@@ -51,6 +51,11 @@
       dotnetCorePackages.dotnet_9.sdk
       jetbrains.rider
 
+      nautilus
+
+      gnomeExtensions.appindicator
+      gnomeExtensions.dash-to-dock
+
       (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override {
         nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
       })
