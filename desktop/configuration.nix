@@ -99,11 +99,13 @@
     ];
 
     substituters = [
+      "https://cache.lix.systems"
       "https://drakon64-nixos-cosmic.cachix.org"
       "https://cosmic.cachix.org/"
     ];
 
     trusted-public-keys = [
+      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
       "drakon64-nixos-cosmic.cachix.org-1:bW2gsh5pbdMxcI3sklvtROM9A8CXtPXgVwmIcO3E3io="
       "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
     ];
