@@ -24,7 +24,7 @@
   };
 
   outputs =
-    inputs@{
+    {
       self,
       nixpkgs,
       lix-module,
@@ -40,6 +40,7 @@
             ./configuration.nix
             lix-module.nixosModules.default
             home-manager.nixosModules.home-manager
+            nixos-xivlauncher-rb.nixosModules.default
 
             {
               home-manager.useGlobalPkgs = true;
@@ -47,10 +48,6 @@
               home-manager.users.adamc = import ./home.nix;
             }
           ];
-
-          specialArgs = {
-            inherit inputs;
-          };
         };
       };
     };

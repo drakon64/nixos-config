@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 
@@ -56,7 +55,7 @@
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-dock
 
-      (inputs.nixos-xivlauncher-rb.packages.x86_64-linux.default.override {
+      (xivlauncher-rb.override {
         nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
       })
 
