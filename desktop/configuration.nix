@@ -161,10 +161,8 @@
     };
 
     fwupd.enable = true;
-    gnome.core-utilities.enable = false;
 
     xserver = {
-      desktopManager.gnome.enable = true;
       videoDrivers = [ "nvidia" ];
       xkb.layout = "gb";
     };
