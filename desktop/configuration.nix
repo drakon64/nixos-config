@@ -11,7 +11,7 @@
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackagesFor pkgs.linuxPackages_cachyos;
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -102,12 +102,14 @@
       "https://cache.lix.systems"
       "https://drakon64-nixos-cosmic.cachix.org"
       "https://cosmic.cachix.org/"
+      "https://drakon64-nixos-cachyos-kernel.cachix.org"
     ];
 
     trusted-public-keys = [
       "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
       "drakon64-nixos-cosmic.cachix.org-1:bW2gsh5pbdMxcI3sklvtROM9A8CXtPXgVwmIcO3E3io="
       "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+      "drakon64-nixos-cachyos-kernel.cachix.org-1:J3gjZ9N6S05pyLA/P0M5y7jXpSxO/i0rshrieQJi5D0="
     ];
   };
 
