@@ -21,6 +21,8 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-cachyos-kernel.url = "github:drakon64/nixos-cachyos-kernel/6.12";
   };
 
   outputs =
@@ -31,6 +33,7 @@
       home-manager,
       nixos-xivlauncher-rb,
       nixos-cosmic,
+      nixos-cachyos-kernel,
     }:
     {
       nixosConfigurations = {
@@ -41,6 +44,7 @@
             lix-module.nixosModules.default
             home-manager.nixosModules.home-manager
             nixos-xivlauncher-rb.nixosModules.default
+            nixos-cachyos-kernel.nixosModules.default
 
             {
               home-manager.useGlobalPkgs = true;
