@@ -11,7 +11,7 @@
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-    kernelPackages = pkgs.linuxPackagesFor pkgs.linuxPackages_cachyos;
+    kernelPackages = with pkgs; linuxPackagesFor linuxPackages_cachyos;
 
     loader = {
       efi.canTouchEfiVariables = true;
