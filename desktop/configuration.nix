@@ -11,7 +11,8 @@
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-    kernelPackages = with pkgs; linuxPackagesFor linuxPackages_cachyos;
+    #kernelPackages = with pkgs; linuxPackagesFor linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_6_12;
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -41,8 +42,8 @@
       vim
       virt-viewer
 
-      observatory
-      cosmic-player
+      #observatory
+      #cosmic-player
 
       dotnetCorePackages.dotnet_9.sdk
       jetbrains.rider
@@ -143,11 +144,11 @@
   };
 
   services = {
-    desktopManager.cosmic.enable = true;
+    #desktopManager.cosmic.enable = true;
 
     displayManager = {
       autoLogin.user = "adamc";
-      cosmic-greeter.enable = true;
+      #cosmic-greeter.enable = true;
     };
 
     fwupd.enable = true;
@@ -171,6 +172,7 @@
       "wheel"
     ];
 
+    initialPassword = "nixos";
     isNormalUser = true;
   };
 
