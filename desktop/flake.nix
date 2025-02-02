@@ -22,7 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-cachyos-kernel.url = "github:drakon64/nixos-cachyos-kernel/6.12";
+    nixos-cachyos-kernel.url = "github:drakon64/nixos-cachyos-kernel";
   };
 
   outputs =

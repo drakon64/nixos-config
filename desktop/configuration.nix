@@ -18,10 +18,7 @@
       systemd-boot.enable = true;
     };
 
-    supportedFilesystems = {
-      bcachefs = true;
-      zfs = lib.mkForce false;
-    };
+    supportedFilesystems.zfs = lib.mkForce false;
   };
 
   console.keyMap = "uk";
@@ -35,7 +32,7 @@
     };
 
     systemPackages = with pkgs; [
-      bcachefs-tools
+      bcache-tools
       discord
       element-desktop
       file-roller
@@ -44,16 +41,13 @@
       vim
       virt-viewer
 
-      cosmic-ext-observatory
+      observatory
       cosmic-player
 
       dotnetCorePackages.dotnet_9.sdk
       jetbrains.rider
 
       nautilus
-
-      gnomeExtensions.appindicator
-      gnomeExtensions.dash-to-dock
 
       (xivlauncher-rb.override {
         nvngxPath = "${config.hardware.nvidia.package}/lib/nvidia/wine";
@@ -99,15 +93,11 @@
     ];
 
     substituters = [
-      "https://cache.lix.systems"
-      "https://drakon64-nixos-cosmic.cachix.org"
       "https://cosmic.cachix.org/"
       "https://drakon64-nixos-cachyos-kernel.cachix.org"
     ];
 
     trusted-public-keys = [
-      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
-      "drakon64-nixos-cosmic.cachix.org-1:bW2gsh5pbdMxcI3sklvtROM9A8CXtPXgVwmIcO3E3io="
       "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
       "drakon64-nixos-cachyos-kernel.cachix.org-1:J3gjZ9N6S05pyLA/P0M5y7jXpSxO/i0rshrieQJi5D0="
     ];
@@ -134,8 +124,6 @@
 
     steam = {
       enable = true;
-
-      gamescopeSession.enable = true;
 
       package = pkgs.steam.override {
         extraEnv = {
