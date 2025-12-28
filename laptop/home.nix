@@ -3,8 +3,8 @@ let
   snackura = pkgs.fetchFromGitHub {
     owner = "SakuSnack";
     repo = "2B-hyfetch-motd";
-    rev = "224b58eed82c5e9e37f193ef6977da20167fdd61";
-    hash = "sha256-RUKjUehiuhFG6YBPfebq0BVoriLuc+UIjR4dZXau7hg=";
+    rev = "ae1b575b5f5cec455dd0889f2520f1e4517800c7";
+    hash = "sha256-mv9ng7SqOTwwOg0UEUqae6VFrsMwsqO6yPajDVi7t/Q=";
   };
 in
 {
