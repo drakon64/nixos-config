@@ -33,12 +33,12 @@ in
       git = {
         enable = true;
 
-        #        signing = {
-        #          format = "ssh";
-        #          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII35VQHcwUnBaYdSrNQj+6x5JBVp6cymepWc48V6GnyB";
-        #          signByDefault = true;
-        #          signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-        #        };
+#        signing = {
+#          format = "ssh";
+#          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII35VQHcwUnBaYdSrNQj+6x5JBVp6cymepWc48V6GnyB";
+#          signByDefault = true;
+#          signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+#        };
 
         userEmail = "6444703+drakon64@users.noreply.github.com";
         userName = "Evelyn Chance";
