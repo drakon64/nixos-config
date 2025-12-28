@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <home-manager/nix-darwin> ];
+  imports = [
+    <home-manager/nix-darwin>
+    ./home.nix
+  ];
 
   environment = {
     systemPackages = with pkgs; [
@@ -21,60 +24,6 @@
       EDITOR = "vim";
     };
   };
-
-  home-manager.users.evelynchance =
-    { pkgs, ... }:
-
-    {
-      programs = {
-        fish.enable = true;
-
-        git = {
-          enable = true;
-
-          #          signing = {
-          #            format = "ssh";
-          #            key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII35VQHcwUnBaYdSrNQj+6x5JBVp6cymepWc48V6GnyB";
-          #            signByDefault = true;
-          #            signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-          #          };
-
-          userEmail = "6444703+drakon64@users.noreply.github.com";
-          userName = "Evelyn Chance";
-        };
-
-        hyfetch = {
-          enable = true;
-
-          settings = {
-            preset = "transbian";
-            mode = "rgb";
-            auto_detect_light_dark = true;
-            light_dark = "dark";
-            lightness = 0.65;
-            color_align.mode = "horizontal";
-            backend = "neofetch";
-            args = null;
-            distro = null;
-            pride_month_disable = false;
-            custom_ascii_path = null;
-          };
-        };
-
-        ssh = {
-          enable = true;
-
-          extraConfig = ''
-            Host *
-            	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-          '';
-        };
-      };
-
-      # The state version is required and should stay at the version you
-      # originally installed.
-      home.stateVersion = "25.05";
-    };
 
   nix = {
     buildMachines = [
@@ -149,12 +98,7 @@
 
   programs = {
     direnv.enable = true;
-
-    fish = {
-      enable = true;
-
-      interactiveShellInit = '''';
-    };
+    fish.enable = true;
 
     ssh = {
       extraConfig = ''
