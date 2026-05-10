@@ -12,15 +12,10 @@
 
 {
   imports = [
-    "${modulesPath}/installer/sd-card/sd-image-aarch64.nix"
+    "${modulesPath}/installer/netboot/netboot-base.nix"
 
     ../common/lix.nix
-    ../common/users.nix
-
-    ./ipxe.nix
   ];
-
-  networking.hostName = "pi"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -32,15 +27,41 @@
   i18n.defaultLocale = "en_GB.UTF-8";
   console.keyMap = "uk";
 
+  services.desktopManager.cosmic = {
+    enable = true;
+
+    xwayland.enable = false;
+  };
+
+  services.displayManager = {
+    autoLogin.user = "nixos";
+    cosmic-greeter.enable = true;
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.nixos = {
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    isNormalUser = true;
+    password = "nixos";
+    shell = pkgs.fish;
+  };
+
+  programs = {
+    firefox.enable = true;
+
+    fish.enable = true;
+
+    vim = {
+      enable = true;
+
+      defaultEditor = true;
+    };
+  };
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -59,5 +80,5 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "${config.system.nixos.release}"; # Did you read the comment?
 }
