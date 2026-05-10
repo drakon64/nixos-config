@@ -1,10 +1,5 @@
-{
-  config,
-  lib,
-  pkgs,
-  modulesPath,
-  ...
-}:
+{ pkgs, ... }:
+
 {
   nixpkgs.overlays = [
     (final: prev: {
