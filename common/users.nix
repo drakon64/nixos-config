@@ -5,6 +5,7 @@
   modulesPath,
   ...
 }:
+
 {
   programs.fish.enable = true;
 
