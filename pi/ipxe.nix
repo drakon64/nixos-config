@@ -6,44 +6,42 @@
 }:
 
 let
-  #    ipxeScript = pkgs.writeText "boot.ipxe" ''
-  #      #!ipxe
-  #      kernel http://pi.drakon.local/kernel init=init initrd=initrd ${toString config.boot.kernelParams}
-  #      initrd http://pi.drakon.local/initrd
-  #      boot
-  #    '';
+  ipxe = (
+    pkgs86.ipxe.override {
+      embedScript = (
+        pkgs.writeText "boot.ipxe" ''
+          #!ipxe
 
-  netboot =
-    let
-      configEvaled =
-        let
-          # TODO: Reuse `pkgs` rather than reimporting
-          pkgs86 = import (import ../lon.nix).nixpkgs { system = "x86_64-linux"; };
-        in
-        pkgs86.nixos [ ./netboot.nix ];
+          kernel ${builtins.baseNameOf configEvaled.pkgs.stdenv.hostPlatform.linux-kernel.target} init=${configEvaled.config.system.build.toplevel}/init initrd=initrd ${toString configEvaled.config.boot.kernelParams}
+          initrd initrd
+          boot
+        ''
+      );
+    }
+  );
 
-      build = configEvaled.config.system.build;
-    in
-    {
-      ramdisk = build.netbootRamdisk + "initrd";
-      kernel = build.kernel + configEvaled.pkgs.stdenv.hostPlatform.linux-kernel.target;
-    };
+  # TODO: Reuse `pkgs` rather than reimporting
+  pkgs86 = import (import ../lon.nix).nixpkgs { system = "x86_64-linux"; };
+
+  configEvaled = pkgs86.nixos [ ./netboot.nix ];
 in
 {
   boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
 
-  environment.systemPackages = [
-    #    (pkgs.ipxe.override {
-    #      embedScript = ipxeScript;
-    #    })
+  services.atftpd = {
+    enable = true;
 
-    (pkgs.symlinkJoin {
-      name = "netboot";
+    root = (
+      pkgs.symlinkJoin {
+        name = "netboot";
 
-      paths = [
-        netboot.kernel
-        netboot.ramdisk
-      ];
-    })
-  ];
+        paths = [
+          (ipxe + "/snponly.efi")
+
+          configEvaled.pkgs.stdenv.hostPlatform.linux-kernel.target
+          (configEvaled.config.system.build.netbootRamdisk + "/initrd")
+        ];
+      }
+    );
+  };
 }

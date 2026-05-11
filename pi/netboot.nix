@@ -12,13 +12,10 @@
 
 {
   imports = [
-    "${modulesPath}/installer/netboot/netboot-base.nix"
+    "${modulesPath}/installer/netboot/netboot-minimal.nix"
 
     ../common/lix.nix
   ];
-
-  # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -27,41 +24,10 @@
   i18n.defaultLocale = "en_GB.UTF-8";
   console.keyMap = "uk";
 
-  services.desktopManager.cosmic = {
-    enable = true;
-
-    xwayland.enable = false;
-  };
-
-  services.displayManager = {
-    autoLogin.user = "nixos";
-    cosmic-greeter.enable = true;
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nixos = {
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    isNormalUser = true;
-    password = "nixos";
-    shell = pkgs.fish;
-  };
+  users.users.nixos.shell = pkgs.fish;
 
-  programs = {
-    firefox.enable = true;
-
-    fish.enable = true;
-
-    vim = {
-      enable = true;
-
-      defaultEditor = true;
-    };
-  };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  programs.fish.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
