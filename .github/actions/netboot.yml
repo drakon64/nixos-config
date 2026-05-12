@@ -1,0 +1,23 @@
+name: Netboot
+
+on:
+  push:
+    branches:
+     - main
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Quick Install Lix
+        uses: canidae-solutions/lix-quick-install-action@v4
+
+      - name: Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@v13
+
+      - name: nix-build -A netboot.kernel -A netboot.initrd -A netboot.ipxe
