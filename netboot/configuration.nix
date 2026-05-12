@@ -24,11 +24,6 @@
   i18n.defaultLocale = "en_GB.UTF-8";
   console.keyMap = "uk";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nixos.shell = pkgs.fish;
-
-  programs.fish.enable = true;
-
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
