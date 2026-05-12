@@ -1,1 +1,5 @@
 .idea
+
+result
+*.img
+*.qcow2
