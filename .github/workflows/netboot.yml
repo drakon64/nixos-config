@@ -20,4 +20,5 @@ jobs:
       - name: Magic Nix Cache
         uses: DeterminateSystems/magic-nix-cache-action@v13
 
-      - name: nix-build -A netboot.kernel -A netboot.initrd -A netboot.ipxe
+      - name: Build
+        run: nix-build -A netboot.kernel -A netboot.initrd -A netboot.ipxe
