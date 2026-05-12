@@ -3,13 +3,17 @@ name: Netboot
 on:
   push:
     branches:
-     - main
+      - main
 
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -22,3 +26,23 @@ jobs:
 
       - name: Build
         run: nix-build -A netboot.kernel -A netboot.initrd -A netboot.ipxe
+
+      - uses: google-github-actions/auth@v3
+        with:
+          project_id: drakon64-nixos-config
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+
+      - uses: google-github-actions/upload-cloud-storage@v3
+        with:
+          path: result/bzImage
+          destination: ${{ secrets.GCP_BUCKET }}
+          
+      - uses: google-github-actions/upload-cloud-storage@v3
+        with:
+          path: result-2/initrd
+          destination: ${{ secrets.GCP_BUCKET }}
+          
+      - uses: google-github-actions/upload-cloud-storage@v3
+        with:
+          path: result-3/initrd
+          destination: "${{ secrets.GCP_BUCKET }}/chain.ipxe"
