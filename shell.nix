@@ -5,5 +5,6 @@ pkgs.mkShellNoCC {
   packages = with pkgs; [
     lon
     nixfmt
+    zstd
   ];
 }
