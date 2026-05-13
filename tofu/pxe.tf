@@ -40,24 +40,9 @@ data "google_iam_workload_identity_pool" "github" {
 }
 
 resource "google_storage_bucket_iam_member" "pxe" {
-  for_each = merge(
-    {
-      githubActions = {
-        member = "principalSet://iam.googleapis.com/${data.google_iam_workload_identity_pool.github.name}/attribute.repository/drakon64/nixos-config"
-        role   = "admin"
-      }
-    },
-    var.pxe_bucket_ip_filter ? {
-      allUsers = {
-        member = "allUsers"
-        role   = "objectViewer"
-      }
-    } : null,
-  )
-
   bucket = google_storage_bucket.pxe.name
-  member = each.value.member
-  role   = "roles/storage.${each.value.role}"
+  member = "principalSet://iam.googleapis.com/${data.google_iam_workload_identity_pool.github.name}/attribute.repository/drakon64/nixos-config"
+  role   = "roles/storage.admin"
 }
 
 resource "google_storage_bucket_object" "pxe" {
