@@ -3,7 +3,7 @@ terraform {
     bucket = "drakon64-tfstate"
     prefix = "nixos-config"
   }
-  
+
   required_providers {
     google = {
       source  = "hashicorp/google"
@@ -18,9 +18,9 @@ terraform {
 }
 
 provider "google" {
-  region  = "europe-west2"
+  region = "europe-west2"
 }
 
 provider "google-beta" {
-  region  = "europe-west2"
+  region = "europe-west2"
 }

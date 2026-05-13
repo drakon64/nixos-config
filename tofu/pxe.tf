@@ -4,8 +4,8 @@ variable "pxe_bucket_name" {
 }
 
 variable "pxe_ip_cidr_ranges" {
-  type = list(string)
-  # sensitive = true
+  type      = list(string)
+  sensitive = true
 }
 
 variable "pxe_bucket_ip_filter" {
