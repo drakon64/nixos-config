@@ -10,7 +10,7 @@ in
       kernel = configEvaled.config.system.build.kernel;
       initrd = configEvaled.config.system.build.netbootRamdisk;
 
-      ipxe = pkgs.writeText "boot.ipxe" ''
+      ipxe = pkgs.writeText "chain.ipxe" ''
         #!ipxe
 
         kernel bzImage init=${configEvaled.config.system.build.toplevel}/init initrd=initrd ${toString configEvaled.config.boot.kernelParams}

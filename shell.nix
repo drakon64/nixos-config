@@ -5,6 +5,7 @@ pkgs.mkShellNoCC {
   packages = with pkgs; [
     lon
     nixfmt
+    opentofu
     zstd
   ];
 }

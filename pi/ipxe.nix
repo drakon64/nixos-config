@@ -21,7 +21,15 @@ in
       pkgs.symlinkJoin {
         name = "netboot";
 
-        paths = [ pkgs86.ipxe ];
+        paths = [
+          pkgs86.ipxe
+
+          (pkgs.writeTextDir "share/autoexec.ipxe" ''
+            #!ipxe
+
+            chain https://storage.googleapis.com/pxe.drakon.cloud/chain.ipxe
+          '')
+        ];
       }
     );
   };
