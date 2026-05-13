@@ -44,7 +44,7 @@ resource "google_storage_bucket_iam_member" "pxe" {
     {
       githubActions = {
         member = "principalSet://iam.googleapis.com/${data.google_iam_workload_identity_pool.github.name}/attribute.repository/drakon64/nixos-config"
-        role   = "objectUser"
+        role   = "admin"
       }
     },
     var.pxe_bucket_ip_filter ? {
