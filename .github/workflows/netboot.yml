@@ -48,5 +48,8 @@ jobs:
       - run: nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=false" ../shell.nix
         working-directory: ./tofu
 
+      - run: nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=true -exclude google_storage_bucket.pxe" ../shell.nix
+        working-directory: ./tofu
+        
       - run: nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=true" ../shell.nix
         working-directory: ./tofu
