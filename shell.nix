@@ -8,4 +8,8 @@ pkgs.mkShellNoCC {
     opentofu
     zstd
   ];
+
+  passthru.opentofu = pkgs.mkShellNoCC {
+    packages = [ pkgs.opentofu ];
+  };
 }

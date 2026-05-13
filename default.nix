@@ -20,4 +20,6 @@ in
     };
 
   pi = (pkgs.nixos [ ./pi/configuration.nix ]).config.system.build.sdImage;
+
+  shell = import ./shell.nix;
 }
