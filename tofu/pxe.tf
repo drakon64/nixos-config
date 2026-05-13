@@ -62,7 +62,7 @@ resource "google_project_iam_custom_role" "pxe" {
   permissions = ["storage.buckets.exemptFromIpFilter"]
   role_id     = "storage.buckets.exemptFromIpFilter"
   title       = "Cloud Storage Exempt From IP Filter"
-  
+
   project = google_storage_bucket.pxe.project
 }
 
@@ -76,6 +76,6 @@ resource "google_project_iam_member" "pxe2" {
   member  = "principalSet://iam.googleapis.com/${data.google_iam_workload_identity_pool.github.name}/attribute.repository/drakon64/nixos-config"
   project = google_storage_bucket.pxe.project
   role    = google_project_iam_custom_role.pxe.id
-  
+
   depends_on = [google_project_iam_member.pxe]
 }
