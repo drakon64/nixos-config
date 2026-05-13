@@ -28,6 +28,11 @@ jobs:
         run: nix-build -A netboot.kernel -A netboot.initrd -A netboot.ipxe
         
       - run: nix-build shell.nix --no-out-link
+        
+      - run: |
+          touch tofu/terraform.tfvars
+          chmod 0600 tofu/terraform.tfvars
+          echo "${{ secrets.TERRAFORM_TFVARS }}" | base64 -d > tofu/terraform.tfvars
 
       - uses: google-github-actions/auth@v3
         with:
@@ -37,8 +42,8 @@ jobs:
       - run: nix-shell --run "tofu init" ../shell.nix
         working-directory: ./tofu
 
-      - run: nix-shell --run "tofu apply -auto-approve -var 'pxe_bucket_ip_filter=false'" ../shell.nix
+      - run: nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=false" ../shell.nix
         working-directory: ./tofu
 
-      - run: nix-shell --run "tofu apply -auto-approve -var 'pxe_bucket_ip_filter=true'" ../shell.nix
+      - run: nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=true" ../shell.nix
         working-directory: ./tofu
