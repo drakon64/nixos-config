@@ -47,11 +47,13 @@ jobs:
         working-directory: ./tofu
 
       - run: |
+          nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=false -target google_storage_bucket.pxe" ../shell.nix
           nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=false" ../shell.nix
           gcloud storage buckets remove-iam-policy-binding gs://${{ secrets.GCP_BUCKET }} --member=allUsers --role=roles/storage.objectViewer
         working-directory: ./tofu
 
       - run: |
-          nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=true" ../shell.nix
+          nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=true -exclude google_storage_bucket.pxe" ../shell.nix
           gcloud storage buckets add-iam-policy-binding gs://${{ secrets.GCP_BUCKET }} --member=allUsers --role=roles/storage.objectViewer
+          nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=true -target google_storage_bucket.pxe" ../shell.nix
         working-directory: ./tofu
