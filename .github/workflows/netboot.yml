@@ -37,8 +37,8 @@ jobs:
       - run: nix-shell --run "tofu init" ../shell.nix
         working-directory: ./tofu
 
-      - run: nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=false" ../shell.nix
+      - run: nix-shell --run "tofu apply -auto-approve -var 'pxe_bucket_ip_filter=false'" ../shell.nix
         working-directory: ./tofu
 
-      - run: nix-shell --run "tofu apply -auto-approve -var pxe_bucket_ip_filter=true" ../shell.nix
+      - run: nix-shell --run "tofu apply -auto-approve -var 'pxe_bucket_ip_filter=true'" ../shell.nix
         working-directory: ./tofu
