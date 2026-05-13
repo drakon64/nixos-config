@@ -26,6 +26,8 @@ jobs:
 
       - name: Build
         run: nix-build -A netboot.kernel -A netboot.initrd -A netboot.ipxe
+        
+      - run: nix-build shell.nix --no-out-link
 
       - uses: google-github-actions/auth@v3
         with:
