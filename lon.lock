@@ -1,16 +1,6 @@
 {
   "version": "1",
   "sources": {
-    "nixos-hardware": {
-      "type": "GitHub",
-      "fetchType": "tarball",
-      "owner": "NixOS",
-      "repo": "nixos-hardware",
-      "branch": "master",
-      "revision": "9bd7c80d43e258aaa607d83b43661df11444d808",
-      "url": "https://github.com/NixOS/nixos-hardware/archive/9bd7c80d43e258aaa607d83b43661df11444d808.tar.gz",
-      "hash": "sha256-xYGrSg6354UK2K4WSQd4+TfyvfqmvFbSY+ZtGQUXK0c="
-    },
     "nixpkgs": {
       "type": "GitHub",
       "fetchType": "tarball",
@@ -20,16 +10,6 @@
       "revision": "0c88e1f2bdb93d5999019e99cb0e61e1fe2af4c5",
       "url": "https://github.com/NixOS/nixpkgs/archive/0c88e1f2bdb93d5999019e99cb0e61e1fe2af4c5.tar.gz",
       "hash": "sha256-q/nkKLDtHIyLjZpKhWk3cSK5IYsFqtMd6UtXF3ddjgA="
-    },
-    "nixpkgs-unstable": {
-      "type": "GitHub",
-      "fetchType": "tarball",
-      "owner": "NixOS",
-      "repo": "nixpkgs",
-      "branch": "nixpkgs-unstable",
-      "revision": "eef00dfd8a712b34af845f9350bac681b1228bd1",
-      "url": "https://github.com/NixOS/nixpkgs/archive/eef00dfd8a712b34af845f9350bac681b1228bd1.tar.gz",
-      "hash": "sha256-Blg88K1jwG+P0Mr27+rKMFCufdrWkV3wWh9AdYtz0FQ="
     }
   }
 }

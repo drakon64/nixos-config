@@ -1,6 +1,2 @@
 .direnv
 .idea
-
-result*
-*.img
-*.qcow2
