@@ -13,12 +13,16 @@
 {
   imports = [
     "${modulesPath}/installer/sd-card/sd-image-aarch64.nix"
+    "${(import ../lon.nix).nixos-hardware}/raspberry-pi/4"
 
     ../common/lix.nix
     ../common/users.nix
 
+    ./pi.nix
     ./ipxe.nix
   ];
+
+  boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "pi"; # Define your hostname.
 

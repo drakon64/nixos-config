@@ -3,6 +3,7 @@ let
 in
 pkgs.mkShellNoCC {
   packages = with pkgs; [
+    colmena
     lon
     nixfmt
     opentofu

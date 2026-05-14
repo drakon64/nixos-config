@@ -6,8 +6,27 @@
 }:
 
 let
-  # TODO: Reuse `pkgs` rather than reimporting
-  pkgs86 = import (import ../lon.nix).nixpkgs { system = "x86_64-linux"; };
+  ipxe =
+    let
+      # TODO: Reuse `pkgs` rather than reimporting
+      pkgs86 = import (import ../lon.nix).nixpkgs { system = "x86_64-linux"; };
+    in
+    pkgs86.ipxe.override {
+      embedScript = (
+        pkgs.writeText "autoexec.ipxe" ''
+          #!ipxe
+
+          dhcp
+          chain https://storage.googleapis.com/pxe.drakon.cloud/chain.ipxe
+        ''
+      );
+
+      #      enableDefaultPlatformTargets = false;
+
+      additionalTargets = {
+        "bin-x86_64-efi/snponly.efi" = "snponly.efi";
+      };
+    };
 in
 {
   boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
@@ -17,20 +36,6 @@ in
   services.atftpd = {
     enable = true;
 
-    root = (
-      pkgs.symlinkJoin {
-        name = "netboot";
-
-        paths = [
-          pkgs86.ipxe
-
-          (pkgs.writeTextDir "share/autoexec.ipxe" ''
-            #!ipxe
-
-            chain https://storage.googleapis.com/pxe.drakon.cloud/chain.ipxe
-          '')
-        ];
-      }
-    );
+    root = ipxe;
   };
 }
